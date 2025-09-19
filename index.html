@@ -617,60 +617,66 @@ form input[type="email"] {
     <div class="no-spam">We respect your inbox — no spam, ever.</div>
   </div>
 </section>
- <!-- OVERRIDES for the ConvertKit form spacing/centering -->
 <style>
-  /* tighten spacing */
-  .cta-band{ padding-top:22px !important; padding-bottom:18px !important; }
-  .cta-band h3{ margin-bottom:6px !important; }
-  .cta-band p{  margin-bottom:10px !important; }
+ /* === ConvertKit CTA Overrides (merged clean) === */
 
-  /* center + stack fields */
-  .cta-band .formkit-form[data-uid="8bd26b353a"] .formkit-fields{
-    justify-content:center !important;
-    gap:6px !important;
-    margin:0 auto !important;
-  }
-  .cta-band .formkit-form[data-uid="8bd26b353a"] .formkit-field,
-  .cta-band .formkit-form[data-uid="8bd26b353a"] .formkit-submit{
-    flex:0 0 100% !important;
-    max-width:720px !important;
-    margin:6px 0 0 0 !important;
-  }
+/* Make the input wide enough so the full placeholder is visible */
+.cta-band .formkit-form[data-uid="8bd26b353a"] input.formkit-input,
+.cta-band input[type="email"]{
+  width: min(800px, 92vw) !important;
+  max-width: 800px !important;
+  padding:14px 16px !important;
+  border-radius:16px !important;
+  box-shadow: inset 0 0 0 2px rgba(255,255,255,.85) !important;
+  background:#fff !important;
+  color:#111 !important;
+}
 
-  /* input */
-  .cta-band .formkit-form[data-uid="8bd26b353a"] input.formkit-input{
-    padding:14px 16px !important;
-    border-radius:16px !important;
-    box-shadow: inset 0 0 0 2px rgba(255,255,255,.85) !important;
-    background:#fff !important; color:#111 !important;
-  }
+/* Force the Subscribe button to your green (even if CK injects inline styles) */
+.cta-band .formkit-submit,
+.cta-band .formkit-submit[style]{
+  background: var(--hbcu-green) !important;
+  background-color: var(--hbcu-green) !important;
+  color:#fff !important;
+  border-radius:14px !important;
+  font-weight:800 !important;
+  padding:14px 18px !important;
+  box-shadow: 0 2px 0 rgba(0,0,0,.18) !important;
+  margin-bottom:0 !important;
+}
+.cta-band .formkit-submit:hover{
+  background:#0c4a43 !important;
+  background-color:#0c4a43 !important;
+}
 
-  /* button — FORCE GREEN (beats inline styles) */
-  .cta-band .formkit-form[data-uid="8bd26b353a"] .formkit-submit,
-  .cta-band .formkit-form[data-uid="8bd26b353a"] .formkit-submit[style]{
-    background: var(--hbcu-green) !important;
-    background-color: var(--hbcu-green) !important;
-    color:#fff !important;
-    border-radius:14px !important;
-    font-weight:800 !important;
-    padding:14px 18px !important;
-    box-shadow: 0 2px 0 rgba(0,0,0,.18) !important; /* smaller so it sits closer */
-    margin-bottom:0 !important;
-  }
-  .cta-band .formkit-form[data-uid="8bd26b353a"] .formkit-submit:hover{
-    background:#0c4a43 !important;
-    background-color:#0c4a43 !important;
-  }
+/* Center/stack fields nicely */
+.cta-band .formkit-form[data-uid="8bd26b353a"] .formkit-fields{
+  justify-content:center !important;
+  gap:6px !important;
+  margin:0 auto !important;
+}
+.cta-band .formkit-form[data-uid="8bd26b353a"] .formkit-field,
+.cta-band .formkit-form[data-uid="8bd26b353a"] .formkit-submit{
+  flex:0 0 100% !important;
+  max-width:800px !important; /* match the input width */
+  margin:4px 0 !important;    /* tighten vertical gap */
+}
 
-  /* hide any powered-by row spacing */
-  .cta-band .formkit-form[data-uid="8bd26b353a"] .formkit-powered-by-convertkit-container{
-    display:none !important;
-  }
+/* Tighter band spacing */
+.cta-band{
+  padding-top:20px !important;
+  padding-bottom:18px !important;
+}
+.cta-band h3{ margin-bottom:6px !important; }
+.cta-band p{ margin-bottom:6px !important; }
 
-  /* “No spam” note */
-  .cta-band .no-spam{
-    margin-top:8px; font-size:.85rem; color:rgba(255,255,255,.85); font-style:italic;
-  }
+/* “No spam” note */
+.cta-band .no-spam{
+  margin-top:8px !important;
+  font-size:.85rem !important;
+  color:rgba(255,255,255,.85) !important;
+  font-style:italic !important;
+}
 /* --- TIGHTEN THE GAP ABOVE THE FORM --- */
 /* CK adds ~56px top padding on wider screens; kill it */
 .cta-band .formkit-form[data-uid="8bd26b353a"][min-width~="700"] [data-style="clean"],
@@ -739,6 +745,7 @@ form input[type="email"] {
 /* Tighter band spacing (optional) */
 .cta-band{ padding-top:20px !important; padding-bottom:18px !important; }
 .cta-band p{ margin-bottom:6px !important; }  
+  </style>
 }</style>
 </div>
 
