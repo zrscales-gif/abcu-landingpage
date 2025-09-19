@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -280,6 +279,32 @@
     .cta-band button{ color:#fff !important; width: min(640px, 88vw); }
   }
 
+
+/* ===== Desktop-only order: CTA above Creator (mobile order unchanged) ===== */
+.story-cta { display: block; }
+
+@media (min-width: 900px){
+  .story-cta{
+    display: grid;
+    grid-template-areas:
+      "cta"
+      "creator";
+  }
+  .story-cta .cta-band{ grid-area: cta; }
+  .story-cta .creator { grid-area: creator; }
+
+  /* Desktop-only creator layout: photo left, text right */
+  .creator .cols{
+    display:grid;
+    grid-template-columns: .95fr 1.05fr; /* photo slightly narrower than text */
+    grid-template-areas:
+      "heading heading"
+      "portrait bio";
+    gap:24px;
+    align-items:stretch;
+  }
+}
+
 </style>
 </head>
 <body>
@@ -348,7 +373,9 @@
     </div>
   </section>
 
-  <section class="creator">
+  
+<div class="story-cta">
+<section class="creator">
     <div class="container">
       <div class="cols">
         <div class="heading">
@@ -365,8 +392,7 @@
     </div>
   </section>
 
-  
-  <section class="cta-band">
+<section class="cta-band">
     <div class="container">
       <h3>Join the legacy</h3>
       <p>Be the first to know when ABC University launches. Early subscribers receive previews, updates, and special offers.</p>
@@ -376,6 +402,8 @@
       </div>
     </div>
   </section>
+</div>
+
 
   <footer>
     <div class="container foot">
