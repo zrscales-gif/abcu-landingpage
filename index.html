@@ -18,7 +18,13 @@
     --wash:#EAF6FB;
     --maxw: 1240px;
   }
-  *{box-sizing:border-box}
+  /* Highlighted word styles */
+.hl { 
+  text-shadow: 0 2px 0 rgba(0,0,0,.15); /* subtle lift */
+}
+.hl-maroon { color: var(--hbcu-maroon); }
+.hl-gold   { color: var(--hbcu-gold); }
+.hl-black  { color: #000; }  *{box-sizing:border-box}
   html, body{overflow-x:hidden;}
   body{
     margin:0;
@@ -342,11 +348,12 @@
     <div class="hero-wrap">
       <div class="hero">
         <div class="copy">
-          <h2>Culturally rooted ABC flashcards that celebrate heritage, language, and identity.
-  <span style="color: var(--hbcu-maroons);">heritage</span>, 
-  <span style="color: var(--hbcu-golds);">language</span>, 
-  and <span style="color: #000;">identity</span>.
-</h2>        
+          <h2>
+  Culturally rooted ABC flashcards that celebrate
+  <span class="hl hl-maroon">heritage</span>, 
+  <span class="hl hl-gold">language</span>, and 
+  <span class="hl hl-black">identity</span>.
+</h2>
     <p>ABC University introduces little learners to letters, ASL hand signs, and culturally rich images that reflect who they are. Representation matters from the start — making learning joyful, inclusive, and empowering.</p>
         </div>
         <div class="fan-stage">
