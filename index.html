@@ -594,6 +594,47 @@ form button {
     padding: 14px 18px !important;
     box-shadow: 0 10px 0 rgba(0,0,0,.25) !important;
   }
+  <!-- FINAL OVERRIDES (place AFTER the ConvertKit <form>) -->
+<style>
+  /* tighter band spacing */
+  .cta-band { padding: 22px 16px !important; }
+  .cta-band h3 { margin-bottom: 6px !important; }
+  .cta-band p  { margin-bottom: 10px !important; }
+
+  /* center fields + keep them same width */
+  .cta-band .formkit-form[data-uid="8bd26b353a"] .formkit-fields{
+    justify-content: center !important;
+    gap: 6px !important;
+    margin: 0 auto !important;
+  }
+  .cta-band .formkit-form[data-uid="8bd26b353a"] .formkit-field,
+  .cta-band .formkit-form[data-uid="8bd26b353a"] .formkit-submit{
+    margin: 6px 0 !important;
+    flex: 0 0 100% !important;
+    max-width: 400px !important;
+  }
+
+  /* input style to match your design */
+  .cta-band .formkit-form[data-uid="8bd26b353a"] input.formkit-input{
+    padding: 14px 16px !important;
+    border-radius: 16px !important;
+    box-shadow: inset 0 0 0 2px rgba(255,255,255,.85) !important;
+    background: #fff !important;
+    color: #111 !important;
+  }
+
+  /* MAKE BUTTON GREEN — this overrides inline CK styles */
+  .cta-band .formkit-form[data-uid="8bd26b353a"] button.formkit-submit{
+    background: #0A3B36 !important;  /* HBCU green */
+    color: #fff !important;
+    border-radius: 14px !important;
+    font-weight: 800 !important;
+    padding: 12px 16px !important;
+    box-shadow: 0 6px 0 rgba(0,0,0,.2) !important;
+  }
+  .cta-band .formkit-form[data-uid="8bd26b353a"] button.formkit-submit:hover{
+    background: #09432e !important;
+  }
 </style>
 </section>
 </div>
