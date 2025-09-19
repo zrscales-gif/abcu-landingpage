@@ -210,15 +210,17 @@
     .creator .portrait{
       order:2;
       width:100%;
-      height:300px;       /* slightly taller so the full image fits nicely */
+      min-height:0;
+      height:auto;          /* let height follow the image */
       border-radius:14px;
-      overflow:hidden;
+      overflow:visible;
       background:#fff;
       padding:0;
+      display:block;
     }
     .creator .portrait img{
       width:100%;
-      height:100%;
+      height:auto;          /* keeps natural aspect ratio */
       object-fit:contain;   /* show the full image inside the outlined space */
       border-radius:14px;
       display:block;
