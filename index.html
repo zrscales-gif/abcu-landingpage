@@ -1,423 +1,224 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-<title>ABC University — The First Step to Legacy Learning</title>
-<style>
-  :root{
-    --hbcu-gold:#F5C26B;
-    --hbcu-green:#0A3B36;
-    --hbcu-maroon:#7A0B0B;
-    --parchment:#F6EFE3;
-    --ink:#0f2b25;
-    --ink-soft:#29423d;
-    --light:#ffffff;
-    --wash:#EAF6FB;
-    --maxw: 1240px;
-  }
-  *{box-sizing:border-box}
-  html, body{overflow-x:hidden;}
-  body{
-    margin:0;
-    font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji","Segoe UI Emoji";
-    color:var(--ink);
-    background:var(--light);
-    line-height:1.6;
-  }
-  a{color:inherit}
-  .container{max-width:var(--maxw);margin:0 auto;padding:0 20px}
-
-  header{
-    background:linear-gradient(180deg, var(--hbcu-gold), #FFE8B6);
-    border-bottom:3px solid #e5c987;
-    overflow:hidden;
-    position:relative;
-  }
-  .topbar{display:flex;align-items:center;gap:14px;padding:14px 0}
-  .topbar img{height:56px;width:auto}
-  .brand h1{font-size:1.2rem;margin:0;font-weight:800;letter-spacing:.3px}
-  .brand .tag{font-style:italic;color:#3b3b3b;margin-top:2px}
-
-  .hero-wrap{max-width:var(--maxw); margin:0 auto; padding:28px 0 40px;}
-  .hero{
-    display:grid;
-    grid-template-columns: minmax(520px, 1.35fr) minmax(360px, .9fr);
-    gap:48px;
-    align-items:center;
-    min-width:0;
-    position:relative;
-  }
-  .hero .copy{ position:relative; z-index:2; }
-  .hero h2{
-    font-size:clamp(30px,4.6vw,54px);
-    margin:0 0 12px;
-    color:var(--hbcu-green);
-    line-height:1.12;
-    max-width: 34ch;
-  }
-  .hero p{font-size:1.08rem;margin:0 0 16px;color:var(--ink-soft);max-width:70ch}
-
-  /* Fanned cards — desktop */
-  .fan-stage{ position:relative; z-index:1; overflow:visible; pointer-events:none; margin-top:-110px; }
-  .fan{position:relative; display:flex; align-items:flex-end; justify-content:center;}
-  .fan .card{
-    height:160px;width:auto;border-radius:16px;border:1px solid #e5e7eb;background:#fff;
-    box-shadow:0 10px 26px rgba(0,0,0,.18);margin-left:-68px;transform-origin:bottom center;
-  }
-  .fan .card:first-child{margin-left:0;}
-  .fan .card.a{transform:rotate(-8deg); z-index:1;}
-  .fan .card.f{transform:rotate(0deg);   z-index:2;}
-  .fan .card.k{transform:rotate(8deg);   z-index:1;}
-
-  section{padding:40px 0}
-
-  /* ======= WHY REP ======= */
-  .stat{
-    background:var(--hbcu-green);color:white;
-    border-top:4px solid #042421;border-bottom:4px solid #042421;
-  }
-  .stat .big{font-size:clamp(24px,3.4vw,36px);font-weight:900;margin:0 0 8px}
-  .stat .row{display:grid; grid-template-columns: 1fr 1fr; gap:20px; align-items:center}
-  .card-right{display:grid; grid-template-columns: 1fr 1fr; gap:12px; align-items:end; justify-items:end}
-  .card-right img{width:100%;height:auto;border-radius:14px;display:block}
-  .card-right img.black-card{border:2px solid #0B4B45;background:#fff}
-  .card-right img.grad{border:2px solid #ffffff;box-shadow:0 3px 8px rgba(0,0,0,.22)}
-
-  /* ======= MEANING ======= */
-  .meaning h3{font-size:1.6rem;color:var(--hbcu-green);margin:0 0 6px;font-weight:700;letter-spacing:.2px}
-  .meaning p{margin:0 0 10px}
-  .meaning .cols{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:12px}
-  .chip{background:#fff;border:1px solid #e5e7eb;border-radius:16px;padding:12px}
-  .chip img{width:100%;height:auto;border-radius:12px;border:1px solid #e5e7eb;background:white;margin-bottom:8px}
-  .chip b{display:block;margin-bottom:4px}
-
-  /* ======= DIFFERENT ======= */
-  .grid4{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
-  .feature{background:var(--wash);border:1px solid #dbeafe;border-radius:16px;padding:16px}
-  .feature h4{margin:0 0 6px;color:var(--hbcu-green);font-weight:700;letter-spacing:.3px;text-transform:uppercase;font-size:1rem}
-
-  /* ======= CREATOR ======= */
-  .creator{background:var(--parchment);border-top:3px solid #e7dcc6;border-bottom:3px solid #e7dcc6}
-  .creator .cols{
-    display:grid;
-    grid-template-columns: 1.05fr .95fr;
-    grid-template-areas:
-      "heading heading"
-      "bio     portrait";
-    gap:24px;
-    align-items:stretch;
-  }
-  .creator .heading{ grid-area: heading; }
-  .creator .bio{ grid-area: bio; }
-  .creator .portrait{ grid-area: portrait; }
-  .creator .portrait{
-    border-radius:16px;border:2px dashed #c9bfa6;background:#fff;overflow:hidden;
-    min-height:360px;display:flex;justify-content:center;align-items:center;
-  }
-  .creator .portrait img{ width:100%; height:100%; object-fit:cover; border-radius:16px; }
-
-  footer{background:#1f1f1f;color:#e5e5e5;padding:22px 0}
-  footer .foot{display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap;align-items:center}
-  footer img{height:40px;width:auto}
-  .subtle{opacity:.95;font-size:.98rem;letter-spacing:.2px}
-
-  /* ======= Tablet ======= */
-  @media (max-width:1100px){
-    .hero{grid-template-columns: 1fr}
-    .fan .card{height:150px; margin-left:-60px}
-    .fan-stage{margin-top:-80px}
-  }
-  @media (max-width:720px){
-    .fan .card{height:135px; margin-left:-56px}
-    .fan-stage{margin-top:-68px}
-  }
-
-  /* ======= Mobile ≤560px ======= */
-  @media (max-width: 560px){
-
-    .topbar { justify-content: center; padding: 16px 0 6px; }
-    .topbar img { height: 70px; max-width: none; filter: drop-shadow(0 2px 2px rgba(0,0,0,0.2)); }
-
-    .hero-wrap { padding: 10px 0 18px; }
-    .hero { grid-template-columns:1fr; gap:18px; }
-
-    .hero .copy { padding-right: 6px; margin-bottom: 0; }
-    .hero h2{
-      font-size: 21px;
-      line-height: 1.18;
-      max-width: 26ch;
-      overflow-wrap: anywhere;
-      hyphens: auto;
-      margin: 0 6px 6px;
-      text-wrap: balance;
-    }
-    .hero p{
-      font-size: 15px;
-      line-height: 1.48;
-      max-width: 36ch;
-      overflow-wrap: anywhere;
-      margin: 0 6px 8px;
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ABC University</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      line-height: 1.6;
+      color: #333;
     }
 
-    /* Smaller, centered fan — all cards fit */
-    .fan-stage{ margin-top:-18px; display:flex; justify-content:center; }
-    .fan{
-      justify-content:center;
-      transform: scale(.83) translateX(-2%);
-      transform-origin: center bottom;
-      width: 92%;
-      margin: 0 auto;
+    header {
+      background: #004225;
+      color: white;
+      text-align: center;
+      padding: 40px 20px;
     }
-    .fan .card{
-      height: 100px;
-      margin-left: -20px;
+
+    header img {
+      max-width: 220px;
+      margin-bottom: 20px;
+    }
+
+    header h1 {
+      font-size: 2.5rem;
+      margin: 10px 0;
+    }
+
+    header p {
+      font-size: 1.2rem;
+      margin: 5px 0;
+    }
+
+    .hero {
+      text-align: center;
+      padding: 40px 20px;
+      background: #f9f9f9;
+    }
+
+    .hero h2 {
+      font-size: 2rem;
+      margin-bottom: 20px;
+    }
+
+    .fan-cards {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 15px;
+      margin-top: 20px;
+    }
+
+    .fan-cards img {
+      width: 120px;
+      height: auto;
+      border-radius: 10px;
+      box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    }
+
+    .section {
+      padding: 60px 20px;
+      max-width: 1000px;
+      margin: auto;
+    }
+
+    .section h2 {
+      text-align: center;
+      font-size: 2rem;
+      margin-bottom: 20px;
+    }
+
+    .section p {
+      text-align: center;
+      max-width: 800px;
+      margin: 0 auto 20px;
+    }
+
+    .rep-images {
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+
+    .rep-images img {
+      width: 200px;
+      height: auto;
+      border-radius: 12px;
+      box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    }
+
+    /* CREATOR SECTION */
+    .creator-section {
+      padding: 60px 20px;
+      background: #f4f4f4;
+    }
+
+    .creator-container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 20px;
+      max-width: 1000px;
+      margin: auto;
+      text-align: center;
+    }
+
+    .creator-photo img {
+      max-width: 100%;
+      height: auto;
+      object-fit: contain; /* no cutoff */
       border-radius: 12px;
     }
-    .fan .card.a{ transform: rotate(-6deg); }
-    .fan .card.f{ transform: rotate(0deg);  z-index: 2; }
-    .fan .card.k{ transform: rotate(6deg); }
 
-    .stat .row{ display:flex; flex-direction:column; gap:14px; }
-    .card-right{
-      order:2;
-      display:grid;
-      grid-template-columns:1fr 1fr;
-      gap:6px;
-      justify-items:center;
-      width:100%;
-      margin-top:2px;
+    /* DESKTOP layout for creator */
+    @media (min-width: 769px) {
+      .creator-container {
+        flex-direction: row; /* side by side */
+        text-align: left;
+        gap: 40px;
+      }
+
+      .creator-photo, .creator-text {
+        flex: 1;
+      }
+
+      .creator-photo img {
+        max-height: 500px;
+        width: auto;
+      }
     }
-    .card-right img{ width:44vw; max-width:185px; height:auto; border-radius:12px; }
 
-    .meaning .cols{ grid-template-columns: repeat(3,1fr) !important; gap:8px; }
-    .meaning .chip{ padding:8px; }
-    .meaning .chip img{ max-width:72px; margin:0 auto 6px; display:block; }
-    .meaning .chip b{ font-size:.9rem; }
-    .meaning .chip div{ font-size:.8rem; }
-
-    .grid4{ grid-template-columns: 1fr !important; gap:12px; }
-    .feature{ padding:14px; border-radius:12px; }
-
-    .creator .cols{
-      display:flex;
-      flex-direction:column;
-      gap:14px;
-      text-align:left;
+    footer {
+      background: #004225;
+      color: white;
+      text-align: center;
+      padding: 40px 20px;
     }
-    .creator .heading{ order:1; }
-    .creator .portrait{
-      order:2;
-      width:100%;
-      min-height:0;
-      height:auto;          /* let height follow the image */
-      border-radius:14px;
-      overflow:visible;
-      background:#fff;
-      padding:0;
-      display:block;
+
+    footer h2 {
+      margin-bottom: 10px;
     }
-    .creator .portrait img{
-      width:100%;
-      height:auto;          /* keeps natural aspect ratio */
-      object-fit:contain;   /* show the full image inside the outlined space */
-      border-radius:14px;
-      display:block;
+
+    footer p {
+      margin-bottom: 20px;
     }
-    .creator .bio{ order:3; }
-  }
 
-  /* ======= CTA BAND ======= */
-  .cta-band{
-    background: var(--hbcu-maroon);
-    color: #fff;
-    text-align:center;
-    padding: 34px 20px 36px;
-    border-top: 4px solid #5c0707;
-    border-bottom: 4px solid #5c0707;
-  }
-  .cta-band h3{
-    margin: 0 0 10px;
-    font-size: clamp(24px, 5.6vw, 38px);
-    font-weight: 800;
-    letter-spacing: .2px;
-  }
-  .cta-band p{
-    margin: 0 auto 16px;
-    max-width: 40ch;
-    font-size: clamp(16px, 3.9vw, 20px);
-    line-height: 1.5;
-    opacity: .95;
-  }
-  .cta-band .cta{
-    justify-content:center;
-    margin-top: 10px;
-    gap: 10px;
-  }
-  .cta-band input[type="email"]{
-    padding: 14px 16px;
-    border: none;
-    border-radius: 16px;
-    min-width: 260px;
-    width: min(640px, 88vw);
-    font-size: 1rem;
-    box-shadow: inset 0 0 0 2px rgba(255,255,255,.85);
-    background: #fff;
-    color: #111;
-  }
-  .cta-band button{ color:#fff !important;
-    padding: 14px 18px;
-    border-radius: 14px;
-    background: #5c0707;
-    box-shadow: 0 10px 0 rgba(0,0,0,.25);
-    font-weight: 800;
-  }
-  .cta-band button:hover{ color:#004d40 !important; }
-  @media (max-width:560px){
-    .cta-band{ padding:28px 16px 32px; }
-    .cta-band .cta{ flex-direction:column; align-items:center; }
-    .cta-band button{ color:#fff !important; width: min(640px, 88vw); }
-  }
+    .signup {
+      background: #006633;
+      color: white;
+      border: none;
+      padding: 12px 25px;
+      font-size: 1rem;
+      border-radius: 6px;
+      cursor: pointer;
+    }
 
-
-/* ===== Desktop-only order: CTA above Creator (mobile order unchanged) ===== */
-.story-cta { display: block; }
-
-@media (min-width: 900px){
-  .story-cta{
-    display: grid;
-    grid-template-areas:
-      "cta"
-      "creator";
-  }
-  .story-cta .cta-band{ grid-area: cta; }
-  .story-cta .creator { grid-area: creator; }
-
-  /* Desktop-only creator layout: photo left, text right */
-  .creator .cols{
-    display:grid;
-    grid-template-columns: .95fr 1.05fr; /* photo slightly narrower than text */
-    grid-template-areas:
-      "heading heading"
-      "portrait bio";
-    gap:24px;
-    align-items:stretch;
-  }
-}
-
-</style>
+    .signup:hover {
+      background: #00994d;
+    }
+  </style>
 </head>
 <body>
-  <header>
-    <div class="container">
-      <div class="topbar">
-        <img src="images/ABCUniversity.png" alt="ABC University logo" onerror="this.style.display='none'">
-        <div class="brand">
-          <h1>ABC University</h1>
-          <div class="tag">The First Step to Legacy Learning</div>
-        </div>
-      </div>
-    </div>
 
-    <div class="hero-wrap">
-      <div class="hero">
-        <div class="copy">
-          <h2>Culturally rooted ABC flashcards that celebrate heritage, language, and identity.</h2>
-          <p>ABC University introduces little learners to letters, ASL hand signs, and culturally rich images that reflect who they are. Representation matters from the start — making learning joyful, inclusive, and empowering.</p>
-        </div>
-        <div class="fan-stage">
-          <div class="fan">
-            <img class="card a" src="images/Aa_Africa.png" alt="A is for Africa">
-            <img class="card f" src="images/Ff_Family.png" alt="F is for Family">
-            <img class="card k" src="images/Kk_King.jpeg" alt="K is for King">
-          </div>
-        </div>
-      </div>
-    </div>
+  <header>
+    <img src="images/ABCUniversity.png" alt="ABC University Logo" />
+    <h1>ABC University</h1>
+    <p>The First Step to Legacy Learning</p>
   </header>
 
-  <section class="stat">
-    <div class="container row">
-      <div>
-        <div class="big">Why Representation Matters</div>
-        <p>Fewer than <b>10% of children’s books published in the U.S. feature Black characters</b> (Cooperative Children’s Book Center, 2022). HBCUs have long filled the gaps in representation in higher education. <b>ABC University</b> fills that same gap at the very beginning of learning — because legacy starts early.</p>
-      </div>
-      <div class="card-right">
-        <img class="black-card" src="images/Bb_Black.jpg" alt="B is for Black flashcard">
-        <img class="grad" src="images/graduation.jpg" alt="Zerin at Hampton University graduation">
-      </div>
+  <section class="hero">
+    <h2>Everyday Learning with Meaning</h2>
+    <div class="fan-cards">
+      <img src="images/Aa_Africa.png" alt="Africa Card">
+      <img src="images/Bb_Black.jpg" alt="Black Card">
+      <img src="images/Cc_Culture.jpeg" alt="Culture Card">
+      <img src="images/Dd_Drum.png" alt="Drum Card">
+      <img src="images/Ee_Eland.jpg" alt="Eland Card">
+      <img src="images/Ff_Family.png" alt="Family Card">
+      <img src="images/Gg_Giraffe.jpg" alt="Giraffe Card">
+      <img src="images/H_Hair.jpeg" alt="Hair Card">
+      <img src="images/Ii_Indigo.jpeg" alt="Indigo Card">
+      <img src="images/Jj_Jazz.png" alt="Jazz Card">
+      <img src="images/Kk_King.jpeg" alt="King Card">
+      <img src="images/Ll_Lion.png" alt="Lion Card">
     </div>
   </section>
 
-  <section class="meaning">
-    <div class="container">
-      <h3>Everyday Learning With Meaning</h3>
-      <p>ABC University flashcards turn everyday learning into a celebration of identity. Each letter is paired with a word that carries cultural meaning — opening the door for conversations that go beyond ABCs.</p>
-      <div class="cols">
-        <div class="chip">
-          <img src="images/Aa_Africa.png" alt="A is for Africa">
-          <b>Africa</b>
-          <div>Reminding little learners their roots are vast, rich, and global.</div>
-        </div>
-        <div class="chip">
-          <img src="images/Ff_Family.png" alt="F is for Family">
-          <b>Family</b>
-          <div>Honoring the bonds that sustain and uplift them.</div>
-        </div>
-        <div class="chip">
-          <img src="images/Kk_King.jpeg" alt="K is for King">
-          <b>King</b>
-          <div>Reflecting strength, dignity, and leadership in themselves.</div>
-        </div>
-      </div>
+  <section class="section">
+    <h2>Why Representation Matters</h2>
+    <p>Children deserve to see themselves in the stories, games, and tools they use every day. Representation builds confidence, identity, and pride.</p>
+    <div class="rep-images">
+      <img src="images/Bb_Black.jpg" alt="Representation Black">
+      <img src="images/Jj_Juneteenth.png" alt="Representation Juneteenth">
     </div>
   </section>
 
-  
-<div class="story-cta">
-<section class="creator">
-    <div class="container">
-      <div class="cols">
-        <div class="heading">
-          <h3 style="margin:0 0 6px;color:var(--hbcu-green);font-weight:700;letter-spacing:.2px">Made by a Dad, Inspired by Legacy</h3>
-        </div>
-        <div class="portrait">
-          <img src="images/Zerin.jpeg" alt="Photo of Zerin, creator of ABC University">
-        </div>
-        <div class="bio">
-          <p>Hi, I’m Zerin — a dad, HBCU graduate, and educator with a background in teaching and public health. My pride in who I am was shaped by my years at <b>Hampton University</b> and by a family legacy where generations before me also attended HBCUs. That experience taught me the power of representation: when you see yourself reflected in your community and in your education, it strengthens your confidence and expands your sense of possibility.</p>
-          <p>But too often, our children don’t get that reflection early enough. That’s why I created <b>ABC University</b> — flashcards that pair letters, ASL hand signs, and images rooted in culture. They’re more than just ABCs; they’re building blocks of pride, identity, and legacy for little learners.</p>
-        </div>
+  <!-- CREATOR SECTION -->
+  <section id="creator" class="creator-section">
+    <div class="creator-container">
+      <div class="creator-photo">
+        <img src="images/Zerin.jpeg" alt="Creator Photo">
+      </div>
+      <div class="creator-text">
+        <h2>Made by a Dad</h2>
+        <p>
+          Hi, I’m Zerin, a dad who wanted to create something meaningful for my daughter and for
+          kids everywhere. ABC University is about representation, legacy, and fun learning.
+        </p>
       </div>
     </div>
   </section>
-
-<section class="cta-band">
-    <div class="container">
-      <h3>Join the legacy</h3>
-      <p>Be the first to know when ABC University launches. Early subscribers receive previews, updates, and special offers.</p>
-      <div class="cta" style="display:flex;">
-        <input type="email" placeholder="Enter your email to get launch updates" aria-label="Email for launch updates">
-        <button>Notify Me at Launch</button>
-      </div>
-    </div>
-  </section>
-</div>
-
 
   <footer>
-    <div class="container foot">
-      <div style="display:flex;align-items:center;gap:10px">
-        <img src="images/ABCUniversity.png" alt="ABC University logo small">
-        <div>© <span id="year"></span> ABC University</div>
-      </div>
-      <div class="subtle">Instagram • TikTok • <a href="mailto:blacklenzphotoz@gmail.com" style="text-decoration:underline;color:#e5e5e5">Email</a></div>
-      <div class="subtle">ABC University is where culture and learning meet.</div>
-    </div>
+    <h2>Join the Legacy</h2>
+    <p>Be the first to know when ABC University launches!</p>
+    <button class="signup">Notify Me at Launch</button>
   </footer>
 
-<script>
-  document.getElementById('year').textContent = new Date().getFullYear();
-</script>
 </body>
 </html>
