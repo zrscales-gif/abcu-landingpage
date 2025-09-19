@@ -591,7 +591,18 @@ form input[type="email"] {
           data-format="inline"
           data-version="5"
           min-width="400 500 600 700 800">
-
+        data-options='{
+    "settings": {
+      "after_subscribe": {
+        "action": "message",
+        "success_message": "🎉 You’re in! Thanks for joining the ABC University family! Follow us on Instagram here: @abcu_legacylearning",
+        "redirect_url": ""
+      },
+      "powered_by": { "show": false }
+    },
+    "version": "5"
+  }'
+>
       <div data-style="clean">
         <ul class="formkit-alert formkit-alert-error" data-element="errors"></ul>
         <div data-element="fields" class="formkit-fields">
