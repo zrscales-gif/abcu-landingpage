@@ -305,6 +305,24 @@
   }
 }
 
+
+/* === Desktop-only: Creator photo scales proportionally (no cropping) === */
+@media (min-width: 900px){
+  .creator .portrait{
+    min-height: 0 !important;
+    height: auto !important;
+    display: block !important;
+    overflow: visible !important;
+  }
+  .creator .portrait img{
+    width: 100% !important;
+    height: auto !important;
+    object-fit: contain !important;
+    object-position: center !important;
+    display: block !important;
+  }
+}
+
 </style>
 </head>
 <body>
