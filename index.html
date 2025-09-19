@@ -62,6 +62,19 @@ form button {
   flex-wrap: wrap;        /* allows wrapping on small screens */
   max-width: 600px;       /* optional limit */
 }
+  .cta-band form {
+  display: flex;
+  flex-direction: column;   /* keeps stacked look on mobile */
+  gap: 8px;                 /* reduce space between input + button */
+  align-items: center;
+  margin-top: 16px;         /* space above the form itself */
+}
+
+.cta-band input[type="email"],
+.cta-band button {
+  width: 100%;
+  max-width: 400px;         /* keeps them aligned nicely */
+}  
   header{
     background:linear-gradient(180deg, var(--hbcu-gold), #FFE8B6);
     border-bottom:3px solid #e5c987;
