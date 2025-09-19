@@ -583,19 +583,19 @@ form input[type="email"] {
     <script src="https://f.convertkit.com/ckjs/ck.5.js"></script>
 
     <!-- ConvertKit form -->
-    <form action="https://app.kit.com/forms/8578135/subscriptions"
-          class="seva-form formkit-form"
-          method="post"
-          data-sv-form="8578135"
-          data-uid="8bd26b353a"
-          data-format="inline"
-          data-version="5"
-          min-width="400 500 600 700 800"
-        data-options='{
+    <form
+  action="https://app.kit.com/forms/8578135/subscriptions"
+  class="seva-form formkit-form"
+  method="post"
+  data-sv-form="8578135"
+  data-uid="8bd26b353a"
+  data-format="inline"
+  data-version="5"
+  data-options='{
     "settings": {
       "after_subscribe": {
         "action": "message",
-        "success_message": "🎉 You’re in! Thanks for joining the ABC University family! Follow us on Instagram here: <a href=\'https://instagram.com/abcu_legacylearning\' target=\'_blank\'>@abcu_legacylearning</a>",
+        "success_message": "🎉 You’re in! Thanks for joining the ABC University family! Follow us on Instagram here: <a href=\\"https://instagram.com/abcu_legacylearning\\" target=\\"_blank\\">@abcu_legacylearning</a>",
         "redirect_url": ""
       },
       "powered_by": { "show": false }
@@ -603,23 +603,21 @@ form input[type="email"] {
     "version": "5"
   }'
 >
-      <div data-style="clean">
-        <ul class="formkit-alert formkit-alert-error" data-element="errors"></ul>
-        <div data-element="fields" class="formkit-fields">
-          <div class="formkit-field">
-            <input class="formkit-input"
-                   name="email_address"
-                   aria-label="Join the Legacy! - Enter your email"
-                   placeholder="Join the Legacy! - Enter your email"
-                   required
-                   type="email">
-          </div>
-          <button data-element="submit" class="formkit-submit">
-            <span>Subscribe</span>
-          </button>
-        </div>
+  <div data-style="clean">
+    <ul class="formkit-alert formkit-alert-error" data-element="errors" data-group="alert"></ul>
+    <div data-element="fields" class="seva-fields formkit-fields">
+      <div class="formkit-field">
+        <input class="formkit-input" name="email_address"
+               aria-label="Join the Legacy! - Enter your email"
+               placeholder="Join the Legacy! - Enter your email"
+               required type="email">
       </div>
-    </form>
+      <button data-element="submit" class="formkit-submit">
+        <span>Subscribe</span>
+      </button>
+    </div>
+  </div>
+</form>
   </div>
 </section>
 <script>
