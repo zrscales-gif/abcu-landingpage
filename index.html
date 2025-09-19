@@ -68,7 +68,7 @@
   }
   button:active{transform:translateY(2px); box-shadow:0 4px 0 #5c0707;}
 
-  /* Fanned cards behind text — desktop */
+  /* Fanned cards — desktop */
   .fan-stage{
     position:relative; z-index:1; overflow:visible; pointer-events:none;
     margin-top:-110px;
@@ -109,11 +109,25 @@
   .cta-band{background:var(--hbcu-maroon);color:white;text-align:center;padding:28px 20px;border-top:4px solid #5c0707;border-bottom:4px solid #5c0707}
   .cta-band h3{margin:0 0 8px;font-size:1.6rem;font-weight:700;letter-spacing:.2px}
 
+  /* ===== CREATOR (restructured for mobile order) ===== */
   .creator{background:var(--parchment);border-top:3px solid #e7dcc6;border-bottom:3px solid #e7dcc6}
-  .creator .row{display:grid;grid-template-columns:.95fr 1.05fr;gap:24px;align-items:center}
-  .creator .portrait{border-radius:16px;border:2px dashed #c9bfa6;background:#fff;overflow:hidden;
-    min-height:280px;display:flex;justify-content:center;align-items:center;}
-  .creator .portrait img{width:100%;height:100%;object-fit:cover;border-radius:16px}
+  .creator .cols{
+    display:grid;
+    grid-template-columns: 1.05fr .95fr;
+    grid-template-areas:
+      "heading heading"
+      "bio     portrait";
+    gap:24px;
+    align-items:stretch;
+  }
+  .creator .heading{ grid-area: heading; }
+  .creator .bio{ grid-area: bio; }
+  .creator .portrait{ grid-area: portrait; }
+  .creator .portrait{
+    border-radius:16px;border:2px dashed #c9bfa6;background:#fff;overflow:hidden;
+    min-height:360px;display:flex;justify-content:center;align-items:center;
+  }
+  .creator .portrait img{ width:100%; height:100%; object-fit:cover; border-radius:16px; }
 
   footer{background:#1f1f1f;color:#e5e5e5;padding:22px 0}
   footer .foot{display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap;align-items:center}
@@ -130,102 +144,87 @@
     .fan-stage{margin-top:-68px}
   }
 
-  /* === Mobile-only: bigger logo + proper fanned cards + requested layout (≤560px) === */
+  /* === Mobile-only: phone fit + centered fan + creator order (≤560px) === */
   @media (max-width: 560px){
 
     /* Bigger, centered logo */
     .topbar { justify-content: center; padding: 20px 0; }
     .topbar img { height: 70px; max-width: none; filter: drop-shadow(0 2px 2px rgba(0,0,0,0.2)); }
 
-    /* Hide hero CTA and subtle line */
-    .hero .cta,
-    .hero .subtle { display: none; }
-
-    /* Fan of cards on phone */
-    .fan-stage{ margin-top:-50px; }
-    .fan .card{ height:120px; margin-left:-28px; border-radius:12px; }
-    .fan .card.a{ transform:rotate(-10deg); }
-    .fan .card.f{ transform:rotate(0deg); z-index:2; }
-    .fan .card.k{ transform:rotate(10deg); }
-
-    /* Why Representation Matters: text first, then images neatly */
-    .stat .row{
-      display:flex;
-      flex-direction:column;
-      gap:20px;
+    /* Fit hero text within phone width */
+    .hero .copy { padding-right: 6px; }
+    .hero h2{
+      font-size: 25px;
+      line-height: 1.22;
+      max-width: 30ch;
+      overflow-wrap: anywhere;
+      hyphens: auto;
+      margin-bottom: 10px;
     }
-    .stat .row > div:first-child{
-      width:100%;
-      max-width:100%;
-      text-align:left;
+    .hero p{
+      font-size: 15.5px;
+      line-height: 1.55;
+      max-width: 36ch;
+      overflow-wrap: anywhere;
+      margin: 0 0 10px;
     }
+
+    /* Hide hero CTA line at top (keeps page tighter on phones) */
+    .hero .cta, .hero .subtle { display:none; }
+
+    /* Fan of cards: fully centered, all visible */
+    .fan-stage{ margin-top:-52px; }
+    .fan{ justify-content:center; }
+    .fan .card{
+      height: 122px;
+      margin-left: -24px;
+      border-radius: 12px;
+    }
+    .fan .card.a{ transform: rotate(-8deg); }
+    .fan .card.f{ transform: rotate(0deg);  z-index: 2; }
+    .fan .card.k{ transform: rotate(8deg); }
+
+    /* Why Representation Matters: text first, images beneath */
+    .stat .row{ display:flex; flex-direction:column; gap:18px; }
     .card-right{
       order:2;
       display:grid;
-      grid-template-columns:1fr 1fr; /* two images per row */
+      grid-template-columns:1fr 1fr;
       gap:10px;
       justify-items:center;
       width:100%;
-      max-width:100%;
-      margin:0 auto;
+      margin-top:4px;
     }
-    .card-right img{
-      width:100%;
-      max-width:160px; /* keeps images from overflowing the column */
-      height:auto;
-      border-radius:12px;
-    }
+    .card-right img{ width:100%; max-width:160px; height:auto; border-radius:12px; }
 
-    /* Features grid ("What Makes Us Different"): 1 column so it fits */
-    .grid4{ grid-template-columns:1fr; gap:12px; }
-    .feature{ padding:14px; border-radius:12px; }
+    /* Everyday Learning With Meaning: keep 3 across, smaller cards */
+    .meaning .cols{ grid-template-columns: repeat(3,1fr) !important; gap:8px; }
+    .meaning .chip{ padding:8px; }
+    .meaning .chip img{ max-width:80px; margin:0 auto 6px; display:block; }
+    .meaning .chip b{ font-size:.9rem; }
+    .meaning .chip div{ font-size:.8rem; }
 
-    /* Creator: portrait first, then text; ensure photo fills space */
-    .creator .row{
+    /* Creator: EXACT order on phones -> heading, photo, bio */
+    .creator .cols{
       display:flex;
       flex-direction:column;
-      gap:16px;
+      gap:14px;
+      text-align:left;
     }
+    .creator .heading{ order:1; }
     .creator .portrait{
-      order:1;
+      order:2;
       width:100%;
-      height:auto;
-      max-height:320px;
+      height:340px;     /* fills outlined area */
+      max-height:70vh;
       border-radius:14px;
-      display:flex;
-      justify-content:center;
-      align-items:center;
       overflow:hidden;
+      display:flex;align-items:center;justify-content:center;
     }
-    .creator .portrait img{
-      width:100%;
-      height:100%;
-      object-fit:cover;
-      border-radius:14px;
-    }
-    .creator .row > div:last-child{ order:2; }
+    .creator .portrait img{ width:100%; height:100%; object-fit:cover; border-radius:14px; }
+    .creator .bio{ order:3; }
 
     footer { padding: 18px 0; }
-  }
-
-  /* === FINAL OVERRIDE: Keep "Everyday Learning With Meaning" 3-across on phones === */
-  @media (max-width: 560px){
-    .meaning .cols{
-      grid-template-columns: repeat(3, 1fr) !important; /* force 3 across */
-      gap: 8px;
-    }
-    .meaning .chip{
-      padding: 8px;
-    }
-    .meaning .chip img{
-      width: 100%;
-      max-width: 80px;    /* smaller image so cards fit */
-      height: auto;
-      margin: 0 auto 6px;
-      display: block;
-    }
-    .meaning .chip b{ font-size: .9rem; }
-    .meaning .chip div{ font-size: .8rem; }
   }
 </style>
 </head>
@@ -324,6 +323,24 @@
     </div>
   </section>
 
+  <!-- ===== CREATOR (restructured) ===== -->
+  <section class="creator">
+    <div class="container">
+      <div class="cols">
+        <div class="heading">
+          <h3 style="margin:0 0 6px;color:var(--hbcu-green);font-weight:700;letter-spacing:.2px">Made by a Dad, Inspired by Legacy</h3>
+        </div>
+        <div class="bio">
+          <p>Hi, I’m Zerin — a dad, HBCU graduate, and educator with a background in teaching and public health. My pride in who I am was shaped by my years at <b>Hampton University</b> and by a family legacy where generations before me also attended HBCUs. That experience taught me the power of representation: when you see yourself reflected in your community and in your education, it strengthens your confidence and expands your sense of possibility.</p>
+          <p>But too often, our children don’t get that reflection early enough. That’s why I created <b>ABC University</b> — flashcards that pair letters, ASL hand signs, and images rooted in culture. They’re more than just ABCs; they’re building blocks of pride, identity, and legacy for little learners.</p>
+        </div>
+        <div class="portrait">
+          <img src="images/Zerin.jpeg" alt="Photo of Zerin, creator of ABC University">
+        </div>
+      </div>
+    </div>
+  </section>
+
   <section class="cta-band">
     <div class="container" style="text-align:center">
       <h3>Join the legacy</h3>
@@ -331,19 +348,6 @@
       <div class="cta" style="justify-content:center;margin-top:8px">
         <input type="email" placeholder="Enter your email to get launch updates and early access">
         <button>Notify Me at Launch</button>
-      </div>
-    </div>
-  </section>
-
-  <section class="creator">
-    <div class="container row">
-      <div class="portrait">
-        <img src="images/Zerin.jpeg" alt="Photo of Zerin, creator of ABC University">
-      </div>
-      <div>
-        <h3 style="margin:0 0 6px;color:var(--hbcu-green);font-weight:700;letter-spacing:.2px">Made by a Dad, Inspired by Legacy</h3>
-        <p>Hi, I’m Zerin — a dad, HBCU graduate, and educator with a background in teaching and public health. My pride in who I am was shaped by my years at <b>Hampton University</b> and by a family legacy where generations before me also attended HBCUs. That experience taught me the power of representation: when you see yourself reflected in your community and in your education, it strengthens your confidence and expands your sense of possibility.</p>
-        <p>But too often, our children don’t get that reflection early enough. That’s why I created <b>ABC University</b> — flashcards that pair letters, ASL hand signs, and images rooted in culture. They’re more than just ABCs; they’re building blocks of pride, identity, and legacy for little learners.</p>
       </div>
     </div>
   </section>
