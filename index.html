@@ -210,7 +210,7 @@
     .creator .portrait{
       order:2;
       width:100%;
-      height:260px;       /* fixed mobile height so image fills nicely */
+      height:300px;       /* slightly taller so the full image fits nicely */
       border-radius:14px;
       overflow:hidden;
       background:#fff;
@@ -219,7 +219,7 @@
     .creator .portrait img{
       width:100%;
       height:100%;
-      object-fit:cover;   /* fill the outlined space */
+      object-fit:contain;   /* show the full image inside the outlined space */
       border-radius:14px;
       display:block;
     }
@@ -264,17 +264,18 @@
     background: #fff;
     color: #111;
   }
-  .cta-band button{
+  .cta-band button{ color:#fff !important;
     padding: 14px 18px;
     border-radius: 14px;
     background: #5c0707;
     box-shadow: 0 10px 0 rgba(0,0,0,.25);
     font-weight: 800;
   }
+  .cta-band button:hover{ color:#004d40 !important; }
   @media (max-width:560px){
     .cta-band{ padding:28px 16px 32px; }
     .cta-band .cta{ flex-direction:column; align-items:center; }
-    .cta-band button{ width: min(640px, 88vw); }
+    .cta-band button{ color:#fff !important; width: min(640px, 88vw); }
   }
 
 </style>
