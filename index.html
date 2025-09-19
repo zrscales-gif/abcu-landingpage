@@ -109,7 +109,7 @@
   .cta-band{background:var(--hbcu-maroon);color:white;text-align:center;padding:28px 20px;border-top:4px solid #5c0707;border-bottom:4px solid #5c0707}
   .cta-band h3{margin:0 0 8px;font-size:1.6rem;font-weight:700;letter-spacing:.2px}
 
-  /* ===== CREATOR (restructured for mobile order) ===== */
+  /* ===== CREATOR (grid for desktop + reorder on mobile) ===== */
   .creator{background:var(--parchment);border-top:3px solid #e7dcc6;border-bottom:3px solid #e7dcc6}
   .creator .cols{
     display:grid;
@@ -154,7 +154,7 @@
     /* Fit hero text within phone width */
     .hero .copy { padding-right: 6px; }
     .hero h2{
-      font-size: 25px;
+      font-size: 24px;
       line-height: 1.22;
       max-width: 30ch;
       overflow-wrap: anywhere;
@@ -162,7 +162,7 @@
       margin-bottom: 10px;
     }
     .hero p{
-      font-size: 15.5px;
+      font-size: 15px;
       line-height: 1.55;
       max-width: 36ch;
       overflow-wrap: anywhere;
@@ -173,11 +173,11 @@
     .hero .cta, .hero .subtle { display:none; }
 
     /* Fan of cards: fully centered, all visible */
-    .fan-stage{ margin-top:-52px; }
+    .fan-stage{ margin-top:-48px; }
     .fan{ justify-content:center; }
     .fan .card{
-      height: 122px;
-      margin-left: -24px;
+      height: 115px;
+      margin-left: -20px;       /* lighter overlap so edges stay visible */
       border-radius: 12px;
     }
     .fan .card.a{ transform: rotate(-8deg); }
@@ -195,16 +195,21 @@
       width:100%;
       margin-top:4px;
     }
-    .card-right img{ width:100%; max-width:160px; height:auto; border-radius:12px; }
+    .card-right img{ width:100%; max-width:140px; height:auto; border-radius:12px; }
 
     /* Everyday Learning With Meaning: keep 3 across, smaller cards */
     .meaning .cols{ grid-template-columns: repeat(3,1fr) !important; gap:8px; }
     .meaning .chip{ padding:8px; }
-    .meaning .chip img{ max-width:80px; margin:0 auto 6px; display:block; }
+    .meaning .chip img{ max-width:75px; margin:0 auto 6px; display:block; }
     .meaning .chip b{ font-size:.9rem; }
     .meaning .chip div{ font-size:.8rem; }
 
-    /* Creator: EXACT order on phones -> heading, photo, bio */
+    /* What Makes Us Different: force to 1 column so it never overflows */
+    .grid4{ grid-template-columns: 1fr !important; gap:12px; }
+    .feature{ padding:14px; border-radius:12px; }
+
+    /* Creator: EXACT order on phones -> heading, photo, bio
+       and show full photo (no crop) while filling the box */
     .creator .cols{
       display:flex;
       flex-direction:column;
@@ -215,13 +220,20 @@
     .creator .portrait{
       order:2;
       width:100%;
-      height:340px;     /* fills outlined area */
+      height:340px;     /* outlined visual area */
       max-height:70vh;
       border-radius:14px;
       overflow:hidden;
       display:flex;align-items:center;justify-content:center;
+      background:#fff;
     }
-    .creator .portrait img{ width:100%; height:100%; object-fit:cover; border-radius:14px; }
+    .creator .portrait img{
+      width:100%;
+      height:100%;
+      object-fit:contain;  /* SEE FULL PHOTO */
+      border-radius:14px;
+      background:#fff;
+    }
     .creator .bio{ order:3; }
 
     footer { padding: 18px 0; }
@@ -323,7 +335,7 @@
     </div>
   </section>
 
-  <!-- ===== CREATOR (restructured) ===== -->
+  <!-- ===== CREATOR (heading → photo → bio on mobile; grid on desktop) ===== -->
   <section class="creator">
     <div class="container">
       <div class="cols">
