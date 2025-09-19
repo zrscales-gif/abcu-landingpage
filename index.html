@@ -75,6 +75,44 @@ form button {
   width: 100%;
   max-width: 400px;         /* keeps them aligned nicely */
 }  
+  /* 1) Tighten the vertical space inside the red CTA band */
+.cta-band{
+  padding: 30px 20px 28px;               /* was bigger; tweak to taste */
+}
+
+/* 2) If you're using your original <div class="cta"> with input + button */
+.cta-band .cta{
+  display: flex !important;              /* override inline style if present */
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;                              /* << controls space between input & button */
+  margin-top: 12px;                      /* << space above the pair */
+}
+.cta-band .cta input[type="email"],
+.cta-band .cta button{
+  width: 100%;
+  max-width: 400px;                      /* keeps both the same width and centered */
+}
+
+/* 3) If you're using an embedded FORM (ConvertKit/others) */
+.cta-band form{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;                              /* << space between input & button */
+  margin-top: 12px;                      /* << space above form */
+}
+.cta-band form input[type="email"],
+.cta-band form button{
+  width: 100%;
+  max-width: 400px;
+}
+
+/* Optional: make the button sit visually closer to the input on small screens */
+@media (max-width:560px){
+  .cta-band{ padding: 26px 16px 26px; }
+  .cta-band .cta, .cta-band form{ gap: 6px; margin-top: 10px; }
+}  
   header{
     background:linear-gradient(180deg, var(--hbcu-gold), #FFE8B6);
     border-bottom:3px solid #e5c987;
