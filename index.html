@@ -622,8 +622,34 @@ form input[type="email"] {
     </form>
   </div>
 </section>
-
-<!-- CSS overrides (keep separate, not inside the form) -->
+<script>
+  (function () {
+    var msg = "🎉 You’re in! Thanks for joining the ABC University family! Follow us on Instagram here: @abcu_legacylearning";
+    function setCKMessage() {
+      var f = document.querySelector('.formkit-form[data-uid="8bd26b353a"]');
+      if (!f) return;
+      try {
+        var opts = {
+          settings: {
+            after_subscribe: { action: "message", success_message: msg, redirect_url: "" },
+            powered_by: { show: false }
+          },
+          version: "5"
+        };
+        f.setAttribute("data-options", JSON.stringify(opts));
+      } catch (e) {}
+    }
+    // Run once DOM is ready and again after CK hydrates
+    if (document.readyState === "loading") {
+      document.addEventListener("DOMContentLoaded", setCKMessage);
+    } else {
+      setCKMessage();
+    }
+    // CK may re-render; reinforce after a tick
+    setTimeout(setCKMessage, 600);
+  })();
+</script>
+  <!-- CSS overrides (keep separate, not inside the form) -->
 <style>
 .cta-band .formkit-input {
   width: min(320px, 90vw);
