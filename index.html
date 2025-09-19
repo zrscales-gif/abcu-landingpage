@@ -580,37 +580,39 @@ form input[type="email"] {
     <p>Be the first to know when ABC University launches. Early subscribers receive previews, updates, and special offers.</p>
 
     <script src="https://f.convertkit.com/ckjs/ck.5.js"></script>
-    <form
-      action="https://app.kit.com/forms/8578135/subscriptions"
-      class="seva-form formkit-form"
-      method="post"
-      data-sv-form="8578135"
-      data-uid="8bd26b353a"
-      data-format="inline"
-      data-version="5"
-      data-options='{
-        "settings": {
-          "after_subscribe": {
-            "action": "message",
-            "success_message": "🎉 You’re in! Thanks for joining the ABC University family! Follow us on Instagram here: &lt;a href=\u0022https://instagram.com/ABCU_legacylearning\u0022 target=\u0022_blank\u0022 style=\u0022color:#f2b800; font-weight:bold; text-decoration:underline;\u0022&gt;@ABCU_legacylearning&lt;/a&gt;",
-            "redirect_url": ""
-          }
-        },
-        "version": "5"
-      }'
-    >
-      <div data-style="clean">
-        <div data-element="fields" class="seva-fields formkit-fields">
-          <div class="formkit-field">
-            <input class="formkit-input" name="email_address"
-                   aria-label="Join the Legacy! - Enter your email"
-                   placeholder="Join the Legacy! - Enter your email"
-                   required type="email">
-          </div>
-          <button data-element="submit" class="formkit-submit"><span>Subscribe</span></button>
-        </div>
+<form
+  action="https://app.kit.com/forms/8578135/subscriptions"  <!-- or https://app.convertkit.com/... IF your embed uses that -->
+  class="seva-form formkit-form"
+  method="post"
+  data-sv-form="8578135"
+  data-uid="8bd26b353a"
+  data-format="inline"
+  data-version="5"
+  data-options='{
+    "settings": {
+      "after_subscribe": {
+        "action": "message",
+        "success_message": "🎉 You’re in! Thanks for joining the ABC University family! Follow us on Instagram here: <a href=\"https://instagram.com/ABCU_legacylearning\" target=\"_blank\" style=\"color:#f2b800; font-weight:bold; text-decoration:underline;\">@ABCU_legacylearning</a>",
+        "redirect_url": ""
+      }
+    },
+    "version": "5"
+  }'
+>
+  <div data-style="clean">
+    <div data-element="fields" class="seva-fields formkit-fields">
+      <div class="formkit-field">
+        <input class="formkit-input" name="email_address"
+               aria-label="Join the Legacy! - Enter your email"
+               placeholder="Join the Legacy! - Enter your email"
+               required type="email">
       </div>
-    </form>
+      <button data-element="submit" class="formkit-submit">
+        <span>Subscribe</span>
+      </button>
+    </div>
+  </div>
+</form>
 
     <div class="no-spam">We respect your inbox — no spam, ever.</div>
   </div>
