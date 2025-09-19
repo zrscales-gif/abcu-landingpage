@@ -706,11 +706,17 @@ form input[type="email"] {
 .cta-band{
   padding-top: 20px !important;
   padding-bottom: 18px !important;
-/* Make the input wide enough so the full placeholder is visible */
+/* Input width — balanced */
 .cta-band .formkit-form[data-uid="8bd26b353a"] input.formkit-input,
 .cta-band input[type="email"]{
-  width: min(800px, 92vw) !important;
-  max-width: 800px !important;
+  width: min(420px, 90vw) !important;  /* shrink max width */
+  max-width: 420px !important;
+  padding:14px 16px !important;
+  border-radius:16px !important;
+  box-shadow: inset 0 0 0 2px rgba(255,255,255,.85) !important;
+  background:#fff !important;
+  color:#111 !important;
+}
 }
 
 /* Force the Subscribe button to your green (even if CK injects inline styles) */
