@@ -21,7 +21,7 @@
   html, body{overflow-x:hidden;}
   body{
     margin:0;
-    font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial;
+    font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji","Segoe UI Emoji";
     color:var(--ink);
     background:var(--light);
     line-height:1.6;
@@ -29,6 +29,7 @@
   a{color:inherit}
   .container{max-width:var(--maxw);margin:0 auto;padding:0 20px}
 
+  /* ======= HEADER / BRAND ======= */
   header{
     background:linear-gradient(180deg, var(--hbcu-gold), #FFE8B6);
     border-bottom:3px solid #e5c987;
@@ -40,12 +41,15 @@
   .brand h1{font-size:1.2rem;margin:0;font-weight:800;letter-spacing:.3px}
   .brand .tag{font-style:italic;color:#3b3b3b;margin-top:2px}
 
+  /* ======= HERO ======= */
   .hero-wrap{max-width:var(--maxw); margin:0 auto; padding:28px 0 40px;}
   .hero{
     display:grid;
     grid-template-columns: minmax(520px, 1.35fr) minmax(360px, .9fr);
     gap:48px;
     align-items:center;
+    min-width:0;
+    position:relative;
   }
   .hero .copy{ position:relative; z-index:2; }
   .hero h2{
@@ -57,11 +61,21 @@
   }
   .hero p{font-size:1.08rem;margin:0 0 16px;color:var(--ink-soft);max-width:70ch}
   .cta{display:flex;gap:10px;flex-wrap:wrap;align-items:center;margin-top:8px}
-  input[type="email"]{padding:12px 14px;border:1.5px solid #d1d5db;border-radius:12px;min-width:260px;font-size:1rem;flex:1}
-  button{padding:12px 16px;border:none;border-radius:12px;background:var(--hbcu-maroon);color:white;font-weight:800;cursor:pointer;box-shadow:0 6px 0 #5c0707}
+  input[type="email"]{
+    padding:12px 14px;border:1.5px solid #d1d5db;border-radius:12px;min-width:260px;font-size:1rem;flex:1
+  }
+  button{
+    padding:12px 16px;border:none;border-radius:12px;background:var(--hbcu-maroon);color:white;
+    font-weight:800;cursor:pointer;box-shadow:0 6px 0 #5c0707; transition:transform .04s ease-in;
+  }
+  button:active{transform:translateY(2px); box-shadow:0 4px 0 #5c0707;}
 
-  .fan-stage{ position:relative; z-index:1; margin-top:-110px;}
-  .fan{ display:flex; justify-content:center; align-items:flex-end;}
+  /* Fanned cards — desktop */
+  .fan-stage{
+    position:relative; z-index:1; overflow:visible; pointer-events:none;
+    margin-top:-110px;
+  }
+  .fan{position:relative; display:flex; align-items:flex-end; justify-content:center;}
   .fan .card{
     height:160px;width:auto;border-radius:16px;border:1px solid #e5e7eb;background:#fff;
     box-shadow:0 10px 26px rgba(0,0,0,.18);margin-left:-68px;transform-origin:bottom center;
@@ -72,7 +86,12 @@
   .fan .card.k{transform:rotate(8deg);   z-index:1;}
 
   section{padding:40px 0}
-  .stat{background:var(--hbcu-green);color:white;border-top:4px solid #042421;border-bottom:4px solid #042421}
+
+  /* ======= WHY REP ======= */
+  .stat{
+    background:var(--hbcu-green);color:white;
+    border-top:4px solid #042421;border-bottom:4px solid #042421;
+  }
   .stat .big{font-size:clamp(24px,3.4vw,36px);font-weight:900;margin:0 0 8px}
   .stat .row{display:grid; grid-template-columns: 1fr 1fr; gap:20px; align-items:center}
   .card-right{display:grid; grid-template-columns: 1fr 1fr; gap:12px; align-items:end; justify-items:end}
@@ -80,17 +99,24 @@
   .card-right img.black-card{border:2px solid #0B4B45;background:#fff}
   .card-right img.grad{border:2px solid #ffffff;box-shadow:0 3px 8px rgba(0,0,0,.22)}
 
-  .meaning h3{font-size:1.6rem;color:var(--hbcu-green);margin:0 0 6px;font-weight:700}
+  /* ======= MEANING ======= */
+  .meaning h3{font-size:1.6rem;color:var(--hbcu-green);margin:0 0 6px;font-weight:700;letter-spacing:.2px}
   .meaning p{margin:0 0 10px}
   .meaning .cols{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:12px}
   .chip{background:#fff;border:1px solid #e5e7eb;border-radius:16px;padding:12px}
   .chip img{width:100%;height:auto;border-radius:12px;border:1px solid #e5e7eb;background:white;margin-bottom:8px}
   .chip b{display:block;margin-bottom:4px}
 
+  /* ======= DIFFERENT ======= */
   .grid4{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
   .feature{background:var(--wash);border:1px solid #dbeafe;border-radius:16px;padding:16px}
   .feature h4{margin:0 0 6px;color:var(--hbcu-green);font-weight:700;letter-spacing:.3px;text-transform:uppercase;font-size:1rem}
 
+  /* ======= CTA BAND ======= */
+  .cta-band{background:var(--hbcu-maroon);color:white;text-align:center;padding:28px 20px;border-top:4px solid #5c0707;border-bottom:4px solid #5c0707}
+  .cta-band h3{margin:0 0 8px;font-size:1.6rem;font-weight:700;letter-spacing:.2px}
+
+  /* ======= CREATOR ======= */
   .creator{background:var(--parchment);border-top:3px solid #e7dcc6;border-bottom:3px solid #e7dcc6}
   .creator .cols{
     display:grid;
@@ -99,86 +125,123 @@
       "heading heading"
       "bio     portrait";
     gap:24px;
+    align-items:stretch;
   }
   .creator .heading{ grid-area: heading; }
   .creator .bio{ grid-area: bio; }
-  .creator .portrait{ grid-area: portrait; border-radius:16px;border:2px dashed #c9bfa6;background:#fff;overflow:hidden;min-height:360px;display:flex;justify-content:center;align-items:center;}
-  .creator .portrait img{ width:100%; height:100%; object-fit:cover; border-radius:16px; }
+  .creator .portrait{ grid-area: portrait; }
+  .creator .portrait{
+    border-radius:16px;border:2px dashed #c9bfa6;background:#fff;overflow:hidden;
+    display:flex;justify-content:center;align-items:center;
+  }
+  .creator .portrait img{ width:100%; height:auto; object-fit:contain; border-radius:16px; display:block; }
 
-  .cta-band{background:var(--hbcu-maroon);color:white;text-align:center;padding:28px 20px;border-top:4px solid #5c0707;border-bottom:4px solid #5c0707}
   footer{background:#1f1f1f;color:#e5e5e5;padding:22px 0}
   footer .foot{display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap;align-items:center}
+  footer img{height:40px;width:auto}
+  .subtle{opacity:.95;font-size:.98rem;letter-spacing:.2px}
 
-  /* ====== MOBILE ONLY FIXES ≤560px ====== */
-  @media (max-width:560px){
-    /* Bigger centered logo */
-    .topbar { justify-content:center; }
-    .topbar img { height:70px; }
+  /* ======= Tablet ======= */
+  @media (max-width:1100px){
+    .hero{grid-template-columns: 1fr}
+    .fan .card{height:150px; margin-left:-60px}
+    .fan-stage{margin-top:-80px}
+  }
+  @media (max-width:720px){
+    .fan .card{height:135px; margin-left:-56px}
+    .fan-stage{margin-top:-68px}
+  }
 
-    /* 1) Remove NOTIFY at the beginning (mobile only) */
-    .hero .cta { display:none !important; }
+  /* ======= Mobile ≤560px ======= */
+  @media (max-width: 560px){
 
-    /* 2) Hero headline & paragraph fit the screen */
-    .hero { grid-template-columns:1fr; gap:22px; }
+    /* Centered/bigger logo */
+    .topbar { justify-content: center; padding: 16px 0 6px; }
+    .topbar img { height: 70px; max-width: none; filter: drop-shadow(0 2px 2px rgba(0,0,0,0.2)); }
+
+    /* Pull hero up slightly and reduce bottom padding to tighten layout */
+    .hero-wrap { padding: 10px 0 18px; }
+
+    /* Headline wraps cleanly and sits higher */
+    .hero .copy { padding-right: 6px; margin-bottom: 2px; }
     .hero h2{
-      font-size:21px;
-      line-height:1.22;
-      max-width:26ch;
-      margin:0 8px 8px;
-      text-wrap:balance;
-      overflow-wrap:anywhere;
+      font-size: 21px;
+      line-height: 1.18;
+      max-width: 26ch;
+      overflow-wrap: anywhere;
+      hyphens: auto;
+      margin: 0 6px 6px;
     }
     .hero p{
-      font-size:15px;
-      line-height:1.5;
-      max-width:36ch;
-      margin:0 8px;
+      font-size: 15px;
+      line-height: 1.48;
+      max-width: 36ch;
+      overflow-wrap: anywhere;
+      margin: 0 6px 10px;
     }
 
-    /* 3) Fanned cards fully visible & centered */
-    .fan-stage{ margin-top:-34px; }
-    .fan{ justify-content:center; transform:scale(.9); transform-origin:center bottom; }
-    .fan .card{ height:106px; margin-left:-24px; border-radius:12px; }
-    .fan .card.a{ transform:rotate(-6deg); }
-    .fan .card.f{ transform:rotate(0deg); z-index:2;}
-    .fan .card.k{ transform:rotate(6deg); }
+    /* Remove top CTA on phones */
+    .hero .cta, .hero .subtle { display:none; }
 
-    /* 4) Representation: images closer & bigger on mobile */
+    /* Fan: shift left, smaller, and closer to text */
+    .fan-stage{ margin-top:-22px; }
+    .fan{ justify-content:flex-start; transform: scale(.9); transform-origin: left bottom; margin-left:-24px; }
+    .fan .card{
+      height: 108px;
+      margin-left: -24px;
+      border-radius: 12px;
+    }
+    .fan .card.a{ transform: rotate(-6deg); }
+    .fan .card.f{ transform: rotate(0deg);  z-index: 2; }
+    .fan .card.k{ transform: rotate(6deg); }
+
+    /* Why Representation: text first; images below as two-up, closer and bigger */
     .stat .row{ display:flex; flex-direction:column; gap:14px; }
     .card-right{
       order:2;
       display:grid;
-      grid-template-columns: 1fr 1fr;
-      gap:6px;                 /* closer together */
+      grid-template-columns:1fr 1fr;
+      gap:6px;
       justify-items:center;
-      align-items:center;
       width:100%;
-      margin-top:4px;
+      margin-top:2px;
     }
-    .card-right img{ width:44vw; max-width:180px; }  /* bigger but safe */
+    .card-right img{ width:44vw; max-width:185px; height:auto; border-radius:12px; }
 
-    /* 5) What Makes Us Different → 1 column on mobile */
-    .grid4{ grid-template-columns:1fr !important; gap:12px; }
+    /* Meaning: keep three across, smaller cards */
+    .meaning .cols{ grid-template-columns: repeat(3,1fr) !important; gap:8px; }
+    .meaning .chip{ padding:8px; }
+    .meaning .chip img{ max-width:72px; margin:0 auto 6px; display:block; }
+    .meaning .chip b{ font-size:.9rem; }
+    .meaning .chip div{ font-size:.8rem; }
 
-    /* 6) Creator on mobile: heading → photo (full image visible INSIDE space) → bio */
-    .creator .cols{ display:flex; flex-direction:column; gap:14px; }
+    /* What Makes Us Different: single column to prevent overflow */
+    .grid4{ grid-template-columns: 1fr !important; gap:12px; }
+    .feature{ padding:14px; border-radius:12px; }
+
+    /* Creator (mobile): heading → photo (full image inside space) → bio */
+    .creator .cols{
+      display:flex;
+      flex-direction:column;
+      gap:14px;
+      text-align:left;
+    }
     .creator .heading{ order:1; }
     .creator .portrait{
       order:2;
       width:100%;
-      height:320px;          /* defined space */
-      max-height:70vh;
+      height:auto;          /* let content define height */
       border-radius:14px;
       overflow:hidden;
       background:#fff;
-      display:flex;align-items:center;justify-content:center;
+      padding:0;            /* no extra space inside the dashed box */
     }
     .creator .portrait img{
       width:100%;
-      height:100%;
-      object-fit:contain;    /* show full photo inside the space */
+      height:auto;          /* show full image without cropping */
+      object-fit:contain;
       border-radius:14px;
-      background:#fff;
+      display:block;
     }
     .creator .bio{ order:3; }
   }
@@ -188,7 +251,7 @@
   <header>
     <div class="container">
       <div class="topbar">
-        <img src="images/ABCUniversity.png" alt="ABC University logo">
+        <img src="images/ABCUniversity.png" alt="ABC University logo" onerror="this.style.display='none'">
         <div class="brand">
           <h1>ABC University</h1>
           <div class="tag">The First Step to Legacy Learning</div>
@@ -205,6 +268,7 @@
             <input type="email" placeholder="Enter your email to get launch updates and early access">
             <button>Notify Me at Launch</button>
           </div>
+          <p class="subtle">No spam — just updates and early access.</p>
         </div>
         <div class="fan-stage">
           <div class="fan">
@@ -257,6 +321,8 @@
   <section>
     <div class="container">
       <h3 style="color:var(--hbcu-green);margin:0 0 8px;font-weight:700;letter-spacing:.2px">What Makes Us Different</h3>
+    </div>
+    <div class="container">
       <div class="grid4">
         <div class="feature">
           <h4>✨ Cultural Pride</h4>
@@ -278,6 +344,7 @@
     </div>
   </section>
 
+  <!-- ===== CREATOR ===== -->
   <section class="creator">
     <div class="container">
       <div class="cols">
@@ -295,10 +362,21 @@
     </div>
   </section>
 
+  <section class="cta-band">
+    <div class="container" style="text-align:center">
+      <h3>Join the legacy</h3>
+      <p class="subtle" style="color:#f1f1f1">Be the first to know when ABC University launches. Early subscribers receive previews, updates, and special offers.</p>
+      <div class="cta" style="justify-content:center;margin-top:8px">
+        <input type="email" placeholder="Enter your email to get launch updates and early access">
+        <button>Notify Me at Launch</button>
+      </div>
+    </div>
+  </section>
+
   <footer>
     <div class="container foot">
       <div style="display:flex;align-items:center;gap:10px">
-        <img src="images/ABCUniversity.png" alt="ABC University logo small" style="height:40px;width:auto">
+        <img src="images/ABCUniversity.png" alt="ABC University logo small">
         <div>© <span id="year"></span> ABC University</div>
       </div>
       <div class="subtle">Instagram • TikTok • <a href="mailto:blacklenzphotoz@gmail.com" style="text-decoration:underline;color:#e5e5e5">Email</a></div>
@@ -306,6 +384,8 @@
     </div>
   </footer>
 
-<script>document.getElementById('year').textContent = new Date().getFullYear();</script>
+<script>
+  document.getElementById('year').textContent = new Date().getFullYear();
+</script>
 </body>
 </html>
