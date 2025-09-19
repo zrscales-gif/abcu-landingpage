@@ -677,15 +677,24 @@ form input[type="email"] {
 
 
   <footer>
-    <div class="container foot">
-      <div style="display:flex;align-items:center;gap:10px">
-        <img src="images/ABCUniversity.png" alt="ABC University logo small">
-        <div>© <span id="year"></span> ABC University</div>
-      </div>
-      <div class="subtle">Instagram • TikTok • <a href="mailto:blacklenzphotoz@gmail.com" style="text-decoration:underline;color:#e5e5e5">Email</a></div>
-      <div class="subtle">ABC University is where culture and learning meet.</div>
+  <div class="container foot">
+    <div style="display:flex;align-items:center;gap:10px">
+      <img src="images/ABCUniversity.png" alt="ABC University logo small">
+      <div>© <span id="year"></span> ABC University</div>
     </div>
-  </footer>
+    <div class="subtle">
+      Instagram • TikTok • 
+      <a href="mailto:abculegacy@gmail.com" style="text-decoration:underline;color:#e5e5e5">Email</a>
+    </div>
+    <div class="subtle">ABC University is where culture and learning meet.</div>
+    <!-- Instagram handle hyperlinked -->
+    <div class="subtle">
+      <a href="https://instagram.com/ABCU_legacylearning" target="_blank" style="text-decoration:underline; color:#e5e5e5;">
+        @ABCU_legacylearning
+      </a>
+    </div>
+  </div>
+</footer>
 
 <script>
   document.getElementById('year').textContent = new Date().getFullYear();
