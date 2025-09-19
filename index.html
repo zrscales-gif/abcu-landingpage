@@ -18,6 +18,25 @@
     --wash:#EAF6FB;
     --maxw: 1240px;
   }
+  footer { background:#1f1f1f; color:#e5e5e5; padding:22px 0; }
+footer img { height:40px; width:auto; vertical-align:middle; margin-right:8px; }
+
+footer .foot{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:16px;
+  flex-wrap:wrap;
+}
+
+footer .foot-left,
+footer .foot-right { flex:1 1 280px; }
+footer .foot-center { flex:1 1 260px; text-align:center; }
+
+@media (max-width:600px){
+  footer .foot { gap:10px; }
+  footer .foot-left, footer .foot-center, footer .foot-right { flex:1 1 100%; text-align:center; }
+}
   /* Highlighted word styles */
 .hl { 
   text-shadow: 0 2px 0 rgba(0,0,0,.15); /* subtle lift */
@@ -556,38 +575,46 @@ form input[type="email"] {
   </section>
 
 <section class="cta-band">
-    <div class="container">
-      <h3>Join the legacy</h3>
-      <p>Be the first to know when ABC University launches. Early subscribers receive previews, updates, and special offers.</p>
-      <script src="https://f.convertkit.com/ckjs/ck.5.js"></script>
-      <form
-  action="https://app.kit.com/forms/8578135/subscriptions"
-  class="seva-form formkit-form"
-  method="post"
-  data-sv-form="8578135"
-  data-uid="8bd26b353a"
-  data-format="inline"
-  data-version="5"
-  data-options='{
-    "settings": {
-      "after_subscribe": {
-        "action": "message",
-        "success_message": "🎉 You’re in! Thanks for joining the ABC University family! Follow us on Instagram here: <a href=\"https://instagram.com/ABCU_legacylearning\" target=\"_blank\" style=\"color:#f2b800; font-weight:bold; text-decoration:underline;\">@ABCU_legacylearning</a>",
-        "redirect_url": ""
-      },
-      "analytics": { "google": null, "fathom": null, "facebook": null, "segment": null, "pinterest": null, "sparkloop": null, "googletagmanager": null },
-      "modal": { "trigger": "timer", "scroll_percentage": null, "timer": 5, "devices": "all", "show_once_every": 15 },
-      "powered_by": { "show": false, "url": "https://kit.com/features/forms?utm_campaign=poweredby&utm_content=form&utm_medium=referral&utm_source=dynamic" },
-      "recaptcha": { "enabled": false },
-      "return_visitor": { "action": "show", "custom_content": "" },
-      "slide_in": { "display_in": "bottom_right", "trigger": "timer", "scroll_percentage": null, "timer": 5, "devices": "all", "show_once_every": 15 },
-      "sticky_bar": { "display_in": "top", "trigger": "timer", "scroll_percentage": null, "timer": 5, "devices": "all", "show_once_every": 15 }
-    },
-    "version": "5"
-  }'
-  min-width="400 500 600 700 800"
->
-        <div class="no-spam">We respect your inbox — no spam, ever.</div>    
+  <div class="container">
+    <h3>Join the legacy</h3>
+    <p>Be the first to know when ABC University launches. Early subscribers receive previews, updates, and special offers.</p>
+
+    <script src="https://f.convertkit.com/ckjs/ck.5.js"></script>
+    <form
+      action="https://app.kit.com/forms/8578135/subscriptions"
+      class="seva-form formkit-form"
+      method="post"
+      data-sv-form="8578135"
+      data-uid="8bd26b353a"
+      data-format="inline"
+      data-version="5"
+      data-options='{
+        "settings": {
+          "after_subscribe": {
+            "action": "message",
+            "success_message": "🎉 You’re in! Thanks for joining the ABC University family! Follow us on Instagram here: &lt;a href=\u0022https://instagram.com/ABCU_legacylearning\u0022 target=\u0022_blank\u0022 style=\u0022color:#f2b800; font-weight:bold; text-decoration:underline;\u0022&gt;@ABCU_legacylearning&lt;/a&gt;",
+            "redirect_url": ""
+          }
+        },
+        "version": "5"
+      }'
+    >
+      <div data-style="clean">
+        <div data-element="fields" class="seva-fields formkit-fields">
+          <div class="formkit-field">
+            <input class="formkit-input" name="email_address"
+                   aria-label="Join the Legacy! - Enter your email"
+                   placeholder="Join the Legacy! - Enter your email"
+                   required type="email">
+          </div>
+          <button data-element="submit" class="formkit-submit"><span>Subscribe</span></button>
+        </div>
+      </div>
+    </form>
+
+    <div class="no-spam">We respect your inbox — no spam, ever.</div>
+  </div>
+</section>   
  <!-- OVERRIDES for the ConvertKit form spacing/centering -->
 <style>
   /* tighten spacing */
@@ -675,52 +702,25 @@ form input[type="email"] {
 </section>
 </div>
 
-<!-- Subscription CTA -->
-<section class="cta-band">
-  <div class="container">
-    <h3>Join the legacy</h3>
-    <p>Be the first to know when ABC University launches. Early subscribers receive previews, updates, and special offers.</p>
-
-    <!-- ConvertKit embed -->
-    <form action="https://app.kit.com/forms/8578135/subscriptions" class="seva-form formkit-form" method="post" 
-      data-sv-form="8578135" data-uid="8bd26b353a" data-format="inline" data-version="5"
-      data-options="{&quot;settings&quot;:{&quot;after_subscribe&quot;:{&quot;action&quot;:&quot;message&quot;,&quot;success_message&quot;:&quot;🎉 You’re in! Thanks for joining the ABC University family!&quot;}}}">
-      
-      <div data-style="clean">
-        <div data-element="fields" class="seva-fields formkit-fields">
-          <div class="formkit-field">
-            <input class="formkit-input" name="email_address" placeholder="Join the Legacy! - Enter your email" required type="email">
-          </div>
-          <button data-element="submit" class="formkit-submit">
-            <span>Subscribe</span>
-          </button>
-        </div>
-      </div>
-    </form>
-    <div class="no-spam">We respect your inbox — no spam, ever.</div>
-  </div>
-</section>  
+ 
   <footer>
-  <div class="container foot" style="flex-direction:column; text-align:center; gap:6px;">
-    <div>
-      <img src="images/ABCUniversity.png" alt="ABC University logo small" style="height:40px;width:auto;vertical-align:middle;margin-right:6px;">
-      © <span id="year"></span> ABC University
+  <div class="container foot">
+    <div class="foot-left">
+      <img src="images/ABCUniversity.png" alt="ABC University logo small">
+      <span>© <span id="year"></span> ABC University</span>
     </div>
 
-    <!-- IG & Email links centered -->
-    <div class="subtle">
-      <a href="https://instagram.com/ABCU_legacylearning" target="_blank" style="text-decoration:underline; color:#e5e5e5; margin-right:12px;">
-        IG
-      </a> • 
-      <a href="mailto:abculegacy@gmail.com" style="text-decoration:underline; color:#e5e5e5; margin-left:12px;">
-        Email
-      </a>
+    <div class="foot-center subtle">
+      <a href="https://instagram.com/ABCU_legacylearning" target="_blank" style="text-decoration:underline;">IG</a>
+      &nbsp;•&nbsp;
+      <a href="mailto:abculegacy@gmail.com" style="text-decoration:underline;">Email</a>
     </div>
 
-    <div class="subtle">ABC University is where culture and learning meet.</div>
+    <div class="foot-right subtle">
+      ABC University is where culture and learning meet.
+    </div>
   </div>
 </footer>
- 
 <script>
   document.getElementById('year').textContent = new Date().getFullYear();
 </script>
