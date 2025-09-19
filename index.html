@@ -579,11 +579,10 @@ form input[type="email"] {
     <h3>Join the legacy</h3>
     <p>Be the first to know when ABC University launches. Early subscribers receive previews, updates, and special offers.</p>
 
-    <!-- Load ConvertKit once -->
-    <script src="https://f.convertkit.com/ckjs/ck.5.js"></script>
+   <!-- Load ConvertKit ONCE on the page -->
+<script src="https://f.convertkit.com/ckjs/ck.5.js"></script>
 
-    <!-- ConvertKit form -->
-    <form
+<form
   action="https://app.kit.com/forms/8578135/subscriptions"
   class="seva-form formkit-form"
   method="post"
@@ -595,8 +594,7 @@ form input[type="email"] {
     "settings": {
       "after_subscribe": {
         "action": "message",
-        "success_message": "🎉 You’re in! Thanks for joining the ABC University family! Follow us on Instagram here: <a href=\\"https://instagram.com/abcu_legacylearning\\" target=\\"_blank\\">@abcu_legacylearning</a>",
-        "redirect_url": ""
+        "success_message": "🎉 You’re in! Thanks for joining the ABC University family! Follow us on Instagram here: <a href=\"https://instagram.com/ABCU_legacylearning\" target=\"_blank\" rel=\"noopener\">@abcu_legacylearning</a>"
       },
       "powered_by": { "show": false }
     },
@@ -607,7 +605,8 @@ form input[type="email"] {
     <ul class="formkit-alert formkit-alert-error" data-element="errors" data-group="alert"></ul>
     <div data-element="fields" class="seva-fields formkit-fields">
       <div class="formkit-field">
-        <input class="formkit-input" name="email_address"
+        <input class="formkit-input"
+               name="email_address"
                aria-label="Join the Legacy! - Enter your email"
                placeholder="Join the Legacy! - Enter your email"
                required type="email">
