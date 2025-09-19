@@ -28,6 +28,8 @@
   }
   a{color:inherit}
   .container{max-width:var(--maxw);margin:0 auto;padding:0 20px}
+
+  /* ======= HEADER / BRAND ======= */
   header{
     background:linear-gradient(180deg, var(--hbcu-gold), #FFE8B6);
     border-bottom:3px solid #e5c987;
@@ -39,7 +41,7 @@
   .brand h1{font-size:1.2rem;margin:0;font-weight:800;letter-spacing:.3px}
   .brand .tag{font-style:italic;color:#3b3b3b;margin-top:2px}
 
-  /* HERO */
+  /* ======= HERO ======= */
   .hero-wrap{max-width:var(--maxw); margin:0 auto; padding:28px 0 40px;}
   .hero{
     display:grid;
@@ -84,6 +86,8 @@
   .fan .card.k{transform:rotate(8deg);   z-index:1;}
 
   section{padding:40px 0}
+
+  /* ======= WHY REP ======= */
   .stat{
     background:var(--hbcu-green);color:white;
     border-top:4px solid #042421;border-bottom:4px solid #042421;
@@ -95,6 +99,7 @@
   .card-right img.black-card{border:2px solid #0B4B45;background:#fff}
   .card-right img.grad{border:2px solid #ffffff;box-shadow:0 3px 8px rgba(0,0,0,.22)}
 
+  /* ======= MEANING ======= */
   .meaning h3{font-size:1.6rem;color:var(--hbcu-green);margin:0 0 6px;font-weight:700;letter-spacing:.2px}
   .meaning p{margin:0 0 10px}
   .meaning .cols{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:12px}
@@ -102,14 +107,16 @@
   .chip img{width:100%;height:auto;border-radius:12px;border:1px solid #e5e7eb;background:white;margin-bottom:8px}
   .chip b{display:block;margin-bottom:4px}
 
+  /* ======= DIFFERENT ======= */
   .grid4{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
   .feature{background:var(--wash);border:1px solid #dbeafe;border-radius:16px;padding:16px}
   .feature h4{margin:0 0 6px;color:var(--hbcu-green);font-weight:700;letter-spacing:.3px;text-transform:uppercase;font-size:1rem}
 
+  /* ======= CTA BAND ======= */
   .cta-band{background:var(--hbcu-maroon);color:white;text-align:center;padding:28px 20px;border-top:4px solid #5c0707;border-bottom:4px solid #5c0707}
   .cta-band h3{margin:0 0 8px;font-size:1.6rem;font-weight:700;letter-spacing:.2px}
 
-  /* ===== CREATOR (grid for desktop + reorder on mobile) ===== */
+  /* ======= CREATOR ======= */
   .creator{background:var(--parchment);border-top:3px solid #e7dcc6;border-bottom:3px solid #e7dcc6}
   .creator .cols{
     display:grid;
@@ -134,6 +141,7 @@
   footer img{height:40px;width:auto}
   .subtle{opacity:.95;font-size:.98rem;letter-spacing:.2px}
 
+  /* ======= Tablet ======= */
   @media (max-width:1100px){
     .hero{grid-template-columns: 1fr}
     .fan .card{height:150px; margin-left:-60px}
@@ -144,19 +152,19 @@
     .fan-stage{margin-top:-68px}
   }
 
-  /* === Mobile-only: phone fit + centered fan + creator order (≤560px) === */
+  /* ======= Mobile ≤560px ======= */
   @media (max-width: 560px){
 
-    /* Bigger, centered logo */
+    /* Centered/bigger logo */
     .topbar { justify-content: center; padding: 20px 0; }
     .topbar img { height: 70px; max-width: none; filter: drop-shadow(0 2px 2px rgba(0,0,0,0.2)); }
 
-    /* Fit hero text within phone width */
+    /* Headline wraps cleanly */
     .hero .copy { padding-right: 6px; }
     .hero h2{
-      font-size: 24px;
+      font-size: 22px;
       line-height: 1.22;
-      max-width: 30ch;
+      max-width: 28ch;
       overflow-wrap: anywhere;
       hyphens: auto;
       margin-bottom: 10px;
@@ -169,22 +177,22 @@
       margin: 0 0 10px;
     }
 
-    /* Hide hero CTA line at top (keeps page tighter on phones) */
+    /* Hide top CTA for tighter hero on phones */
     .hero .cta, .hero .subtle { display:none; }
 
-    /* Fan of cards: fully centered, all visible */
-    .fan-stage{ margin-top:-48px; }
-    .fan{ justify-content:center; }
+    /* Fan: smaller, centered, fully visible */
+    .fan-stage{ margin-top:-30px; }
+    .fan{ justify-content:center; transform: scale(.92); transform-origin: center bottom; }
     .fan .card{
-      height: 115px;
-      margin-left: -20px;       /* lighter overlap so edges stay visible */
+      height: 112px;
+      margin-left: -26px;
       border-radius: 12px;
     }
-    .fan .card.a{ transform: rotate(-8deg); }
+    .fan .card.a{ transform: rotate(-6deg); }
     .fan .card.f{ transform: rotate(0deg);  z-index: 2; }
-    .fan .card.k{ transform: rotate(8deg); }
+    .fan .card.k{ transform: rotate(6deg); }
 
-    /* Why Representation Matters: text first, images beneath */
+    /* Why Representation: text first; images below as two-up */
     .stat .row{ display:flex; flex-direction:column; gap:18px; }
     .card-right{
       order:2;
@@ -197,19 +205,18 @@
     }
     .card-right img{ width:100%; max-width:140px; height:auto; border-radius:12px; }
 
-    /* Everyday Learning With Meaning: keep 3 across, smaller cards */
+    /* Meaning: keep three across, smaller cards */
     .meaning .cols{ grid-template-columns: repeat(3,1fr) !important; gap:8px; }
     .meaning .chip{ padding:8px; }
-    .meaning .chip img{ max-width:75px; margin:0 auto 6px; display:block; }
+    .meaning .chip img{ max-width:72px; margin:0 auto 6px; display:block; }
     .meaning .chip b{ font-size:.9rem; }
     .meaning .chip div{ font-size:.8rem; }
 
-    /* What Makes Us Different: force to 1 column so it never overflows */
+    /* What Makes Us Different: single column to prevent overflow */
     .grid4{ grid-template-columns: 1fr !important; gap:12px; }
     .feature{ padding:14px; border-radius:12px; }
 
-    /* Creator: EXACT order on phones -> heading, photo, bio
-       and show full photo (no crop) while filling the box */
+    /* Creator: Heading → Photo → Bio; full photo visible; no tall white bands */
     .creator .cols{
       display:flex;
       flex-direction:column;
@@ -220,7 +227,7 @@
     .creator .portrait{
       order:2;
       width:100%;
-      height:340px;     /* outlined visual area */
+      height:auto;          /* let the photo set the height */
       max-height:70vh;
       border-radius:14px;
       overflow:hidden;
@@ -229,8 +236,8 @@
     }
     .creator .portrait img{
       width:100%;
-      height:100%;
-      object-fit:contain;  /* SEE FULL PHOTO */
+      height:auto;          /* show full image */
+      object-fit:contain;
       border-radius:14px;
       background:#fff;
     }
@@ -314,6 +321,8 @@
   <section>
     <div class="container">
       <h3 style="color:var(--hbcu-green);margin:0 0 8px;font-weight:700;letter-spacing:.2px">What Makes Us Different</h3>
+    </div>
+    <div class="container">
       <div class="grid4">
         <div class="feature">
           <h4>✨ Cultural Pride</h4>
@@ -335,19 +344,19 @@
     </div>
   </section>
 
-  <!-- ===== CREATOR (heading → photo → bio on mobile; grid on desktop) ===== -->
+  <!-- ===== CREATOR ===== -->
   <section class="creator">
     <div class="container">
       <div class="cols">
         <div class="heading">
           <h3 style="margin:0 0 6px;color:var(--hbcu-green);font-weight:700;letter-spacing:.2px">Made by a Dad, Inspired by Legacy</h3>
         </div>
+        <div class="portrait">
+          <img src="images/Zerin.jpeg" alt="Photo of Zerin, creator of ABC University">
+        </div>
         <div class="bio">
           <p>Hi, I’m Zerin — a dad, HBCU graduate, and educator with a background in teaching and public health. My pride in who I am was shaped by my years at <b>Hampton University</b> and by a family legacy where generations before me also attended HBCUs. That experience taught me the power of representation: when you see yourself reflected in your community and in your education, it strengthens your confidence and expands your sense of possibility.</p>
           <p>But too often, our children don’t get that reflection early enough. That’s why I created <b>ABC University</b> — flashcards that pair letters, ASL hand signs, and images rooted in culture. They’re more than just ABCs; they’re building blocks of pride, identity, and legacy for little learners.</p>
-        </div>
-        <div class="portrait">
-          <img src="images/Zerin.jpeg" alt="Photo of Zerin, creator of ABC University">
         </div>
       </div>
     </div>
