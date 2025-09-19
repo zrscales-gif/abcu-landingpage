@@ -183,12 +183,18 @@
     /* Remove top CTA on phones */
     .hero .cta, .hero .subtle { display:none; }
 
-    /* Fan: shift left, smaller, and closer to text */
-    .fan-stage{ margin-top:-22px; }
-    .fan{ justify-content:flex-start; transform: scale(.9); transform-origin: left bottom; margin-left:-24px; }
+    /* Fan: CENTER under text, slightly smaller, a touch closer */
+    .fan-stage{ margin-top:-24px; }
+    .fan{
+      justify-content:center;            /* center, not left */
+      transform: scale(.9);
+      transform-origin: center bottom;
+      margin-left: 0;                    /* reset any left push */
+      width: 100%;
+    }
     .fan .card{
-      height: 108px;
-      margin-left: -24px;
+      height: 110px;
+      margin-left: -22px;                /* gentle overlap */
       border-radius: 12px;
     }
     .fan .card.a{ transform: rotate(-6deg); }
@@ -230,16 +236,16 @@
     .creator .portrait{
       order:2;
       width:100%;
-      height:auto;          /* let content define height */
+      height:auto;
       border-radius:14px;
       overflow:hidden;
       background:#fff;
-      padding:0;            /* no extra space inside the dashed box */
+      padding:0;
     }
     .creator .portrait img{
       width:100%;
-      height:auto;          /* show full image without cropping */
-      object-fit:contain;
+      height:auto;
+      object-fit:contain;   /* show full image */
       border-radius:14px;
       display:block;
     }
