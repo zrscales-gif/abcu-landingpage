@@ -29,7 +29,6 @@
   a{color:inherit}
   .container{max-width:var(--maxw);margin:0 auto;padding:0 20px}
 
-  /* ======= HEADER / BRAND ======= */
   header{
     background:linear-gradient(180deg, var(--hbcu-gold), #FFE8B6);
     border-bottom:3px solid #e5c987;
@@ -41,7 +40,6 @@
   .brand h1{font-size:1.2rem;margin:0;font-weight:800;letter-spacing:.3px}
   .brand .tag{font-style:italic;color:#3b3b3b;margin-top:2px}
 
-  /* ======= HERO ======= */
   .hero-wrap{max-width:var(--maxw); margin:0 auto; padding:28px 0 40px;}
   .hero{
     display:grid;
@@ -60,21 +58,9 @@
     max-width: 34ch;
   }
   .hero p{font-size:1.08rem;margin:0 0 16px;color:var(--ink-soft);max-width:70ch}
-  .cta{display:flex;gap:10px;flex-wrap:wrap;align-items:center;margin-top:8px}
-  input[type="email"]{
-    padding:12px 14px;border:1.5px solid #d1d5db;border-radius:12px;min-width:260px;font-size:1rem;flex:1
-  }
-  button{
-    padding:12px 16px;border:none;border-radius:12px;background:var(--hbcu-maroon);color:white;
-    font-weight:800;cursor:pointer;box-shadow:0 6px 0 #5c0707; transition:transform .04s ease-in;
-  }
-  button:active{transform:translateY(2px); box-shadow:0 4px 0 #5c0707;}
 
   /* Fanned cards — desktop */
-  .fan-stage{
-    position:relative; z-index:1; overflow:visible; pointer-events:none;
-    margin-top:-110px;
-  }
+  .fan-stage{ position:relative; z-index:1; overflow:visible; pointer-events:none; margin-top:-110px; }
   .fan{position:relative; display:flex; align-items:flex-end; justify-content:center;}
   .fan .card{
     height:160px;width:auto;border-radius:16px;border:1px solid #e5e7eb;background:#fff;
@@ -111,10 +97,6 @@
   .grid4{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
   .feature{background:var(--wash);border:1px solid #dbeafe;border-radius:16px;padding:16px}
   .feature h4{margin:0 0 6px;color:var(--hbcu-green);font-weight:700;letter-spacing:.3px;text-transform:uppercase;font-size:1rem}
-
-  /* ======= CTA BAND ======= */
-  .cta-band{background:var(--hbcu-maroon);color:white;text-align:center;padding:28px 20px;border-top:4px solid #5c0707;border-bottom:4px solid #5c0707}
-  .cta-band h3{margin:0 0 8px;font-size:1.6rem;font-weight:700;letter-spacing:.2px}
 
   /* ======= CREATOR ======= */
   .creator{background:var(--parchment);border-top:3px solid #e7dcc6;border-bottom:3px solid #e7dcc6}
@@ -155,15 +137,12 @@
   /* ======= Mobile ≤560px ======= */
   @media (max-width: 560px){
 
-    /* Centered/bigger logo */
     .topbar { justify-content: center; padding: 16px 0 6px; }
     .topbar img { height: 70px; max-width: none; filter: drop-shadow(0 2px 2px rgba(0,0,0,0.2)); }
 
-    /* Bring hero up slightly and tighten spacing */
     .hero-wrap { padding: 10px 0 18px; }
     .hero { grid-template-columns:1fr; gap:18px; }
 
-    /* Headline wraps cleanly and sits higher */
     .hero .copy { padding-right: 6px; margin-bottom: 0; }
     .hero h2{
       font-size: 21px;
@@ -182,27 +161,24 @@
       margin: 0 6px 8px;
     }
 
-    /* Remove top CTA on phones */
-    .hero .cta, .hero .subtle { display:none !important; }
-
-    /* Fan: center but with a subtle nudge left for balance */
-    .fan-stage{ margin-top:-24px; }
+    /* Smaller, centered fan — all cards fit */
+    .fan-stage{ margin-top:-18px; display:flex; justify-content:center; }
     .fan{
       justify-content:center;
-      transform: scale(.9) translateX(-3%); /* slight left nudge */
+      transform: scale(.83) translateX(-2%);
       transform-origin: center bottom;
-      width: 100%;
+      width: 92%;
+      margin: 0 auto;
     }
     .fan .card{
-      height: 110px;
-      margin-left: -22px;                /* gentle overlap */
+      height: 100px;
+      margin-left: -20px;
       border-radius: 12px;
     }
     .fan .card.a{ transform: rotate(-6deg); }
     .fan .card.f{ transform: rotate(0deg);  z-index: 2; }
     .fan .card.k{ transform: rotate(6deg); }
 
-    /* Why Representation: text first; images below; closer & bigger */
     .stat .row{ display:flex; flex-direction:column; gap:14px; }
     .card-right{
       order:2;
@@ -215,18 +191,15 @@
     }
     .card-right img{ width:44vw; max-width:185px; height:auto; border-radius:12px; }
 
-    /* Meaning: three across, smaller cards */
     .meaning .cols{ grid-template-columns: repeat(3,1fr) !important; gap:8px; }
     .meaning .chip{ padding:8px; }
     .meaning .chip img{ max-width:72px; margin:0 auto 6px; display:block; }
     .meaning .chip b{ font-size:.9rem; }
     .meaning .chip div{ font-size:.8rem; }
 
-    /* What Makes Us Different: single column */
     .grid4{ grid-template-columns: 1fr !important; gap:12px; }
     .feature{ padding:14px; border-radius:12px; }
 
-    /* Creator (mobile): heading → photo (full image inside space) → bio */
     .creator .cols{
       display:flex;
       flex-direction:column;
@@ -237,7 +210,7 @@
     .creator .portrait{
       order:2;
       width:100%;
-      height:auto;          /* auto height so full image shows */
+      height:260px;       /* fixed mobile height so image fills nicely */
       border-radius:14px;
       overflow:hidden;
       background:#fff;
@@ -245,13 +218,65 @@
     }
     .creator .portrait img{
       width:100%;
-      height:auto;
-      object-fit:contain;   /* show full image */
+      height:100%;
+      object-fit:cover;   /* fill the outlined space */
       border-radius:14px;
       display:block;
     }
     .creator .bio{ order:3; }
   }
+
+  /* ======= CTA BAND ======= */
+  .cta-band{
+    background: var(--hbcu-maroon);
+    color: #fff;
+    text-align:center;
+    padding: 34px 20px 36px;
+    border-top: 4px solid #5c0707;
+    border-bottom: 4px solid #5c0707;
+  }
+  .cta-band h3{
+    margin: 0 0 10px;
+    font-size: clamp(24px, 5.6vw, 38px);
+    font-weight: 800;
+    letter-spacing: .2px;
+  }
+  .cta-band p{
+    margin: 0 auto 16px;
+    max-width: 40ch;
+    font-size: clamp(16px, 3.9vw, 20px);
+    line-height: 1.5;
+    opacity: .95;
+  }
+  .cta-band .cta{
+    justify-content:center;
+    margin-top: 10px;
+    gap: 10px;
+  }
+  .cta-band input[type="email"]{
+    padding: 14px 16px;
+    border: none;
+    border-radius: 16px;
+    min-width: 260px;
+    width: min(640px, 88vw);
+    font-size: 1rem;
+    box-shadow: inset 0 0 0 2px rgba(255,255,255,.85);
+    background: #fff;
+    color: #111;
+  }
+  .cta-band button{
+    padding: 14px 18px;
+    border-radius: 14px;
+    background: #5c0707;
+    box-shadow: 0 10px 0 rgba(0,0,0,.25);
+    font-weight: 800;
+  }
+  @media (max-width:560px){
+    .cta-band{ padding:28px 16px 32px; }
+    .cta-band .cta{ flex-direction:column; align-items:center; }
+    .cta-band button{ width: min(640px, 88vw); }
+  }
+
 </style>
 </head>
 <body>
@@ -271,11 +296,6 @@
         <div class="copy">
           <h2>Culturally rooted ABC flashcards that celebrate heritage, language, and identity.</h2>
           <p>ABC University introduces little learners to letters, ASL hand signs, and culturally rich images that reflect who they are. Representation matters from the start — making learning joyful, inclusive, and empowering.</p>
-          <div class="cta">
-            <input type="email" placeholder="Enter your email to get launch updates and early access">
-            <button>Notify Me at Launch</button>
-          </div>
-          <p class="subtle">No spam — just updates and early access.</p>
         </div>
         <div class="fan-stage">
           <div class="fan">
@@ -325,33 +345,6 @@
     </div>
   </section>
 
-  <section>
-    <div class="container">
-      <h3 style="color:var(--hbcu-green);margin:0 0 8px;font-weight:700;letter-spacing:.2px">What Makes Us Different</h3>
-    </div>
-    <div class="container">
-      <div class="grid4">
-        <div class="feature">
-          <h4>✨ Cultural Pride</h4>
-          <p>Words and imagery that affirm identity and celebrate Black culture.</p>
-        </div>
-        <div class="feature">
-          <h4>🤟 Inclusive ASL Learning</h4>
-          <p>Every letter is paired with an ASL hand sign — illustrated in skin tones that reflect the children and families using them.</p>
-        </div>
-        <div class="feature">
-          <h4>📚 Early Learning Focus</h4>
-          <p>Designed for toddlers, preschoolers, and early readers — supporting letter recognition, language development, and motor skills.</p>
-        </div>
-        <div class="feature">
-          <h4>🎨 Vibrant, Kid‑Friendly Design</h4>
-          <p>Bold colors and playful illustrations that spark curiosity and deeper conversations.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ===== CREATOR ===== -->
   <section class="creator">
     <div class="container">
       <div class="cols">
@@ -369,12 +362,13 @@
     </div>
   </section>
 
+  
   <section class="cta-band">
-    <div class="container" style="text-align:center">
+    <div class="container">
       <h3>Join the legacy</h3>
-      <p class="subtle" style="color:#f1f1f1">Be the first to know when ABC University launches. Early subscribers receive previews, updates, and special offers.</p>
-      <div class="cta" style="justify-content:center;margin-top:8px">
-        <input type="email" placeholder="Enter your email to get launch updates and early access">
+      <p>Be the first to know when ABC University launches. Early subscribers receive previews, updates, and special offers.</p>
+      <div class="cta" style="display:flex;">
+        <input type="email" placeholder="Enter your email to get launch updates" aria-label="Email for launch updates">
         <button>Notify Me at Launch</button>
       </div>
     </div>
