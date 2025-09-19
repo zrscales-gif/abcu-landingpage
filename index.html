@@ -177,8 +177,10 @@
       margin: 0 0 10px;
     }
 
-    /* Hide top CTA for tighter hero on phones */
-    .hero .cta, .hero .subtle { display:none; }
+    /* Keep top CTA on phones (stack for fit) */
+    .hero .cta{ display:flex; flex-direction:column; align-items:stretch; gap:8px; }
+    .hero .cta input[type="email"]{ min-width:0; width:100%; }
+    .hero .cta button{ width:100%; }
 
     /* Fan: smaller, centered, fully visible */
     .fan-stage{ margin-top:-30px; }
@@ -216,7 +218,7 @@
     .grid4{ grid-template-columns: 1fr !important; gap:12px; }
     .feature{ padding:14px; border-radius:12px; }
 
-    /* Creator: Heading → Photo → Bio; full photo visible; no tall white bands */
+    /* Creator: Heading → Photo → Bio; show full photo; no giant bands */
     .creator .cols{
       display:flex;
       flex-direction:column;
