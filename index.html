@@ -666,91 +666,29 @@ form input[type="email"] {
 .cta-band {
   padding-top: 18px !important;
   padding-bottom: 16px !important;
+  
+  /* Kill CK’s auto top padding on wide screens */
+.cta-band .formkit-form[data-uid="8bd26b353a"][min-width~="700"] [data-style="clean"],
+.cta-band .formkit-form[data-uid="8bd26b353a"][min-width~="800"] [data-style="clean"]{
+  padding-top:0 !important;
 }
+
+/* Remove default margins CK injects on field + button */
+.cta-band .formkit-form[data-uid="8bd26b353a"] .formkit-field,
+.cta-band .formkit-form[data-uid="8bd26b353a"] .formkit-submit{
+  margin:4px 0 !important;}
 .cta-band p {
   margin-bottom: 4px !important;
 }
-
+/* No spam note */
+.cta-band .no-spam {
+  margin-top: 8px;
+  font-size: 0.85rem;
+  color: rgba(255,255,255,0.85);
+  font-style: italic;
 }
-/* --- TIGHTEN THE GAP ABOVE THE FORM --- */
-/* CK adds ~56px top padding on wider screens; kill it */
-.cta-band .formkit-form[data-uid="8bd26b353a"][min-width~="700"] [data-style="clean"],
-.cta-band .formkit-form[data-uid="8bd26b353a"][min-width~="800"] [data-style="clean"]{
-  padding-top: 0 !important;
-}
-
-/* Reduce the paragraph’s bottom margin just above the form */
-.cta-band p{ 
-  margin-bottom: 6px !important; 
-}
-
-/* Make the fields block sit closer to the text */
-.cta-band .formkit-form[data-uid="8bd26b353a"] .formkit-fields{
-  margin-top: 4px !important;   /* was larger */
-  gap: 6px !important;          /* tighter space between input & button */
-}
-
-/* Kill CK’s default 15px bottom margins on field + button */
-.cta-band .formkit-form[data-uid="8bd26b353a"] .formkit-field,
-.cta-band .formkit-form[data-uid="8bd26b353a"] .formkit-submit{
-  margin: 4px 0 !important;
-  max-width: 640px !important;
-}
-
-/* Optional: slightly tighter band padding overall */
-.cta-band{
-  padding-top: 20px !important;
-  padding-bottom: 18px !important;
-/* Input width — balanced */
-.cta-band .formkit-form[data-uid="8bd26b353a"] input.formkit-input,
-.cta-band input[type="email"]{
-  width: min(420px, 90vw) !important;  /* shrink max width */
-  max-width: 420px !important;
-  padding:14px 16px !important;
-  border-radius:16px !important;
-  box-shadow: inset 0 0 0 2px rgba(255,255,255,.85) !important;
-  background:#fff !important;
-  color:#111 !important;
-}
-}
-
-/* Force the Subscribe button to your green (even if CK injects inline styles) */
-.cta-band .formkit-submit,
-.cta-band .formkit-submit[style]{
-  background: var(--hbcu-green) !important;
-  background-color: var(--hbcu-green) !important;
-  color:#fff !important;
-  border-radius:14px !important;
-  font-weight:800 !important;
-  padding:14px 18px !important;
-  box-shadow: 0 2px 0 rgba(0,0,0,.18) !important;
-  margin-bottom:0 !important;
-}
-.cta-band .formkit-submit:hover{
-  background:#0c4a43 !important;
-  background-color:#0c4a43 !important;
-}
-
-/* Center/stack fields nicely */
-.cta-band .formkit-form[data-uid="8bd26b353a"] .formkit-fields{
-  justify-content:center !important;
-  gap:6px !important;
-  margin:0 auto !important;
-}
-.cta-band .formkit-form[data-uid="8bd26b353a"] .formkit-field,
-.cta-band .formkit-form[data-uid="8bd26b353a"] .formkit-submit{
-  flex:0 0 100% !important;
-  max-width:800px !important; /* match the input width above */
-}
-
-/* Tighter band spacing (optional) */
-.cta-band{ padding-top:20px !important; padding-bottom:18px !important; }
-.cta-band p{ margin-bottom:6px !important; }  
-  </style>
-}</style>
-</div>
-
- 
+</style> 
+  
   <footer>
   <div class="container foot">
     <div class="foot-left">
