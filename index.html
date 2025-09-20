@@ -164,38 +164,44 @@ footer .foot-center { flex:1 1 260px; text-align:center; }
   .fan-stage{margin-top:-68px}
 }
 
-/* ===== Mobile (≤560px) — single source of truth ===== */
+/* === Mobile fan (≤560px) — centered & balanced === */
 @media (max-width:560px){
-  .topbar { justify-content:center; padding:16px 0 6px; }
-  .topbar img { height:70px; filter: drop-shadow(0 2px 2px rgba(0,0,0,0.2)); }
+  /* tighten hero a touch */
+  .hero{ grid-template-columns:1fr; gap:16px; padding:14px 0 18px; }
 
-  .hero-wrap { padding:10px 0 18px; }
-  .hero { grid-template-columns:1fr; gap:18px; }
-  .hero .copy { padding-right:6px; margin-bottom:0; }
-  .hero h2{
-    font-size:21px; line-height:1.18; max-width:26ch; margin:0 6px 6px; text-wrap:balance;
-  }
-  .hero p{
-    font-size:15px; line-height:1.48; max-width:36ch; margin:0 6px 8px;
-  }
-
-  /* Smaller fan */
-  .fan-stage{ margin-top:-18px; display:flex; justify-content:center; }
-  .fan{
+  /* fan */
+  .fan-stage{
+    margin-top:6px;
+    display:flex;
     justify-content:center;
-    transform: scale(.83) translateX(-2%);   /* <— SHRUNK */
-    transform-origin: center bottom;
-    width: 92%;
-    margin: 0 auto;
+    width:100%;
+  }
+  .fan{
+    display:flex;
+    justify-content:center;
+    align-items:flex-end;
+    width:100%;
+    max-width:340px;   /* balanced size on phones */
+    margin:0 auto;
+    transform:none;    /* don’t enlarge */
   }
   .fan .card{
-    height:100px;                               /* <— SMALLER CARDS */
-    margin-left:-20px;
+    height:120px;      /* big but not overwhelming */
+    margin-left:-22px; /* even overlap */
     border-radius:12px;
   }
+  .fan .card:first-child{ margin-left:0; }
   .fan .card.a{ transform:rotate(-6deg); }
   .fan .card.f{ transform:rotate(0deg); z-index:2; }
   .fan .card.k{ transform:rotate(6deg); }
+
+  /* meaning bar matches fan width */
+  .meaning-wrap{ justify-content:center; }
+  .meaning-bar{
+    width:100%;
+    max-width:340px;
+    margin:8px auto 0;
+  }
 
   /* Why Rep — text first, photos under */
   .stat .row{ display:block; }
