@@ -448,7 +448,7 @@ footer .foot-center { flex:1 1 260px; text-align:center; }
 <style>
 /* Input width — smaller */
 .cta-band .formkit-form[data-uid="8bd26b353a"] input.formkit-input,
-.cta-band input[type="email"] {
+.cta-band input[type="email"]{
   width: min(320px, 90vw) !important;
   max-width: 320px !important;
   padding: 10px 14px !important;
@@ -461,104 +461,21 @@ footer .foot-center { flex:1 1 260px; text-align:center; }
 
 /* Subscribe button — match input width */
 .cta-band .formkit-submit,
-.cta-band .formkit-submit[style] {
+.cta-band .formkit-submit[style]{
   width: min(320px, 90vw) !important;
   max-width: 320px !important;
   background: var(--hbcu-green) !important;
-  color: #fff !important;
-  border-radius: 12px !important;
-  font-weight: 700 !important;
-  padding: 10px 14px !important;
-  font-size: 0.95rem !important;
-  box-shadow: 0 2px 0 rgba(0,0,0,.18) !important;
-  margin-bottom: 0 !important;
-}
-.cta-band .formkit-submit:hover {
-  background: #0c4a43 !important;
-}
-
-/* Center/stack fields */
-.cta-band .formkit-form[data-uid="8bd26b353a"] .formkit-fields {
-  justify-content: center !important;
-  gap: 6px !important;
-  margin: 0 auto !important;
-}
-.cta-band .formkit-form[data-uid="8bd26b353a"] .formkit-field,
-.cta-band .formkit-form[data-uid="8bd26b353a"] .formkit-submit {
-  flex: 0 0 100% !important;
-  max-width: 320px !important;
-}
-
-/* Tighter band spacing */
-.cta-band {
-  padding-top: 18px !important;
-  padding-bottom: 16px !important;
-}
-.cta-band p {
-  margin-bottom: 4px !important;
-}
-
-}
-/* --- TIGHTEN THE GAP ABOVE THE FORM --- */
-/* CK adds ~56px top padding on wider screens; kill it */
-.cta-band .formkit-form[data-uid="8bd26b353a"][min-width~="700"] [data-style="clean"],
-.cta-band .formkit-form[data-uid="8bd26b353a"][min-width~="800"] [data-style="clean"]{
-  padding-top: 0 !important;
-}
-
-/* Reduce the paragraph’s bottom margin just above the form */
-.cta-band p{ 
-  margin-bottom: 6px !important; 
-}
-
-/* Make the fields block sit closer to the text */
-.cta-band .formkit-form[data-uid="8bd26b353a"] .formkit-fields{
-  margin-top: 4px !important;   /* was larger */
-  gap: 6px !important;          /* tighter space between input & button */
-}
-
-/* Kill CK’s default 15px bottom margins on field + button */
-.cta-band .formkit-form[data-uid="8bd26b353a"] .formkit-field,
-.cta-band .formkit-form[data-uid="8bd26b353a"] .formkit-submit{
-  margin: 4px 0 !important;
-  max-width: 640px !important;
-}
-
-/* Optional: slightly tighter band padding overall */
-.cta-band{
-  padding-top: 20px !important;
-  padding-bottom: 18px !important;
-/* Input width — balanced */
-.cta-band .formkit-form[data-uid="8bd26b353a"] input.formkit-input,
-.cta-band input[type="email"]{
-  width: min(420px, 90vw) !important;  /* shrink max width */
-  max-width: 420px !important;
-  padding:14px 16px !important;
-  border-radius:16px !important;
-  box-shadow: inset 0 0 0 2px rgba(255,255,255,.85) !important;
-  background:#fff !important;
-  color:#111 !important;
-}
-}
-
-/* Force the Subscribe button to your green (even if CK injects inline styles) */
-.cta-band .formkit-submit,
-.cta-band .formkit-submit[style]{
-  background: var(--hbcu-green) !important;
-  background-color: var(--hbcu-green) !important;
   color:#fff !important;
-  border-radius:14px !important;
-  font-weight:800 !important;
-  padding:14px 18px !important;
-  box-shadow: 0 2px 0 rgba(0,0,0,.18) !important;
+  border-radius:12px !important;
+  font-weight:700 !important;
+  padding:10px 14px !important;
+  font-size:0.95rem !important;
+  box-shadow:0 2px 0 rgba(0,0,0,.18) !important;
   margin-bottom:0 !important;
 }
-.cta-band .formkit-submit:hover{
-  background:#0c4a43 !important;
-  background-color:#0c4a43 !important;
-}
+.cta-band .formkit-submit:hover{ background:#0c4a43 !important; }
 
-/* Center/stack fields nicely */
+/* Center/stack fields */
 .cta-band .formkit-form[data-uid="8bd26b353a"] .formkit-fields{
   justify-content:center !important;
   gap:6px !important;
@@ -567,13 +484,28 @@ footer .foot-center { flex:1 1 260px; text-align:center; }
 .cta-band .formkit-form[data-uid="8bd26b353a"] .formkit-field,
 .cta-band .formkit-form[data-uid="8bd26b353a"] .formkit-submit{
   flex:0 0 100% !important;
-  max-width:800px !important; /* match the input width above */
+  max-width:320px !important;
 }
 
-/* Tighter band spacing (optional) */
-.cta-band{ padding-top:20px !important; padding-bottom:18px !important; }
-.cta-band p{ margin-bottom:6px !important; }  
-  </style>
+/* Tighter band spacing */
+.cta-band{ padding-top:18px !important; padding-bottom:16px !important; }
+.cta-band p{ margin-bottom:4px !important; }
+
+/* Kill CK extra top padding on wide screens */
+.cta-band .formkit-form[data-uid="8bd26b353a"][min-width~="700"] [data-style="clean"],
+.cta-band .formkit-form[data-uid="8bd26b353a"][min-width~="800"] [data-style="clean"]{
+  padding-top:0 !important;
+}
+
+/* “Balanced” wider input option (separate rule; can keep or remove) */
+.cta-band .formkit-form[data-uid="8bd26b353a"] input.formkit-input.wide{
+  width:min(420px, 90vw) !important;
+  max-width:420px !important;
+  padding:14px 16px !important;
+  border-radius:16px !important;
+  box-shadow: inset 0 0 0 2px rgba(255,255,255,.85) !important;
+}
+</style>
 }</style>
 </div>
 
